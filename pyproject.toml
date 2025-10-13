@@ -1,0 +1,30 @@
+[project]
+name = "mss-ameisen"
+version = "0.1.0"
+description = ""
+authors = [
+    {name = "c4-hash",email = "zephyr.kessler@gmail.com"}
+]
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "bptk-py (==2.2.1)",
+    "pandas (==2.3.0)"
+]
+
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.group.dev.dependencies]
+black = "^25.9.0"
+ruff = "^0.14.0"
+pytest = "^8.4.2"
+pre-commit = "^4.3.0"
+
+
+[tool.poetry]
+package-mode = false
+
+
