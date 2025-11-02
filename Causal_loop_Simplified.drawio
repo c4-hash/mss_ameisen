@@ -1,0 +1,74 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/27.0.9 Chrome/134.0.6998.205 Electron/35.4.0 Safari/537.36" version="27.0.9">
+  <diagram name="Seite-1" id="1OtIkLHAPUZwhkILBJNx">
+    <mxGraphModel dx="583" dy="568" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="2tT6C2cmZIHD40CZ8NEw-45" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;curved=1;fillColor=#f8cecc;strokeColor=#b85450;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="2tT6C2cmZIHD40CZ8NEw-1" target="2tT6C2cmZIHD40CZ8NEw-2" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="262" y="260" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="260" y="200" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="2tT6C2cmZIHD40CZ8NEw-46" value="Verbrauchte Ressourcen&lt;div&gt;+&lt;/div&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="2tT6C2cmZIHD40CZ8NEw-45" vertex="1" connectable="0">
+          <mxGeometry x="0.3763" relative="1" as="geometry">
+            <mxPoint x="-20" y="-23" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="2tT6C2cmZIHD40CZ8NEw-1" value="Ameisen" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="330" y="160" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="2tT6C2cmZIHD40CZ8NEw-47" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;curved=1;fillColor=#f8cecc;strokeColor=#b85450;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.087;entryY=0.492;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="2tT6C2cmZIHD40CZ8NEw-2" target="Mwj46QVUi1lkF_ni2HW9-7" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="260" y="439" />
+              <mxPoint x="340" y="439" />
+            </Array>
+            <mxPoint x="260" y="380" as="sourcePoint" />
+            <mxPoint x="340" y="480" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="2tT6C2cmZIHD40CZ8NEw-48" value="Ressourcen&lt;div&gt;+&lt;/div&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="2tT6C2cmZIHD40CZ8NEw-47" vertex="1" connectable="0">
+          <mxGeometry x="0.3061" y="4" relative="1" as="geometry">
+            <mxPoint x="-40" y="-6" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="2tT6C2cmZIHD40CZ8NEw-2" value="Ressourcen für Invasive Art" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="200" y="280" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="2tT6C2cmZIHD40CZ8NEw-4" value="Veränderung der Habitatsstruktur" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="480" y="280" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="2tT6C2cmZIHD40CZ8NEw-38" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;curved=1;fillColor=#f8cecc;strokeColor=#b85450;" parent="1" source="Mwj46QVUi1lkF_ni2HW9-7" target="2tT6C2cmZIHD40CZ8NEw-4" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="460" y="480" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="2tT6C2cmZIHD40CZ8NEw-40" value="&lt;div&gt;Veränderung&lt;/div&gt;+" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="2tT6C2cmZIHD40CZ8NEw-38" vertex="1" connectable="0">
+          <mxGeometry x="0.0125" y="-3" relative="1" as="geometry">
+            <mxPoint x="-23" y="-39" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="2tT6C2cmZIHD40CZ8NEw-51" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;curved=1;fillColor=#f8cecc;strokeColor=#b85450;" parent="1" source="2tT6C2cmZIHD40CZ8NEw-4" target="2tT6C2cmZIHD40CZ8NEw-1" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="290" y="370" as="sourcePoint" />
+            <mxPoint x="340" y="320" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="520" y="200" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="2tT6C2cmZIHD40CZ8NEw-52" value="Lebensraumsqualität für einheinmische Ameisen&amp;nbsp;&lt;div&gt;-&lt;/div&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="2tT6C2cmZIHD40CZ8NEw-51" vertex="1" connectable="0">
+          <mxGeometry x="0.1919" y="28" relative="1" as="geometry">
+            <mxPoint x="88" y="2" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Mwj46QVUi1lkF_ni2HW9-7" value="Invasive Arten&lt;div&gt;Exogen&lt;/div&gt;" style="ellipse;shape=cloud;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="329.9999999999998" y="400" width="120" height="80" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

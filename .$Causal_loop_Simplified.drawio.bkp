@@ -1,0 +1,185 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/27.0.9 Chrome/134.0.6998.205 Electron/35.4.0 Safari/537.36" version="27.0.9">
+  <diagram name="Seite-1" id="1OtIkLHAPUZwhkILBJNx">
+    <mxGraphModel dx="2032" dy="828" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="2tT6C2cmZIHD40CZ8NEw-45" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0;entryDx=0;entryDy=0;exitX=0;exitY=1;exitDx=0;exitDy=0;curved=1;fillColor=#f8cecc;strokeColor=#b85450;" parent="1" source="2tT6C2cmZIHD40CZ8NEw-1" target="2tT6C2cmZIHD40CZ8NEw-2" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="350" y="190" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="382" y="198" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="2tT6C2cmZIHD40CZ8NEw-46" value="Temperaturstress&lt;div&gt;-&lt;/div&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="2tT6C2cmZIHD40CZ8NEw-45" vertex="1" connectable="0">
+          <mxGeometry x="0.3763" relative="1" as="geometry">
+            <mxPoint x="28" y="-25" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="2tT6C2cmZIHD40CZ8NEw-1" value="Ameisen" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="460" y="130" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="2tT6C2cmZIHD40CZ8NEw-17" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;curved=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;fillColor=#d5e8d4;strokeColor=#82b366;" parent="1" source="2tT6C2cmZIHD40CZ8NEw-2" target="2tT6C2cmZIHD40CZ8NEw-6" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="520" y="410" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="2tT6C2cmZIHD40CZ8NEw-18" value="Schlechtere Habitatsqualität&lt;div&gt;-&lt;/div&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="2tT6C2cmZIHD40CZ8NEw-17" vertex="1" connectable="0">
+          <mxGeometry x="-0.1739" y="2" relative="1" as="geometry">
+            <mxPoint x="25" y="-8" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="2tT6C2cmZIHD40CZ8NEw-33" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;curved=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;fillColor=#fff2cc;strokeColor=#d6b656;" parent="1" source="2tT6C2cmZIHD40CZ8NEw-2" target="2tT6C2cmZIHD40CZ8NEw-1" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="340" y="170" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="2tT6C2cmZIHD40CZ8NEw-34" value="Grössere Population&lt;div&gt;+&lt;/div&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="2tT6C2cmZIHD40CZ8NEw-33" vertex="1" connectable="0">
+          <mxGeometry x="0.0286" y="-3" relative="1" as="geometry">
+            <mxPoint x="17" y="15" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="2tT6C2cmZIHD40CZ8NEw-47" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;curved=1;exitX=1;exitY=1;exitDx=0;exitDy=0;fillColor=#f8cecc;strokeColor=#b85450;" parent="1" source="2tT6C2cmZIHD40CZ8NEw-2" target="2tT6C2cmZIHD40CZ8NEw-37" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="382" y="500" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="2tT6C2cmZIHD40CZ8NEw-48" value="Klimawandel&lt;div&gt;+&lt;/div&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="2tT6C2cmZIHD40CZ8NEw-47" vertex="1" connectable="0">
+          <mxGeometry x="0.3061" y="4" relative="1" as="geometry">
+            <mxPoint x="-40" y="-6" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="2tT6C2cmZIHD40CZ8NEw-2" value="Habitat" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="280" y="370" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="2tT6C2cmZIHD40CZ8NEw-4" value="Invasive Arten" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="650" y="280" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="2tT6C2cmZIHD40CZ8NEw-25" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;curved=1;fillColor=#d5e8d4;strokeColor=#82b366;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" parent="1" source="2tT6C2cmZIHD40CZ8NEw-5" target="2tT6C2cmZIHD40CZ8NEw-2" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="500" y="80" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="2tT6C2cmZIHD40CZ8NEw-26" value="Schlechtere Qualität&lt;div&gt;-&lt;/div&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="2tT6C2cmZIHD40CZ8NEw-25" vertex="1" connectable="0">
+          <mxGeometry x="-0.2333" y="-2" relative="1" as="geometry">
+            <mxPoint x="36" y="-12" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="2tT6C2cmZIHD40CZ8NEw-5" value="Waldstabilität" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="30" y="250" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="2tT6C2cmZIHD40CZ8NEw-20" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;curved=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;fillColor=#d5e8d4;strokeColor=#82b366;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" parent="1" source="2tT6C2cmZIHD40CZ8NEw-6" target="2tT6C2cmZIHD40CZ8NEw-1" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="520" y="240" />
+              <mxPoint x="520" y="240" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="2tT6C2cmZIHD40CZ8NEw-21" value="Kleinere Ameisenpopulation&lt;div&gt;-&lt;/div&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="2tT6C2cmZIHD40CZ8NEw-20" vertex="1" connectable="0">
+          <mxGeometry x="0.3135" relative="1" as="geometry">
+            <mxPoint x="9" y="16" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="2tT6C2cmZIHD40CZ8NEw-6" value="Nistplätze" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="460" y="280" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="2tT6C2cmZIHD40CZ8NEw-24" value="Geringere Waldstabilität&lt;div&gt;-&lt;/div&gt;" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;curved=1;fillColor=#d5e8d4;strokeColor=#82b366;entryX=0.5;entryY=0;entryDx=0;entryDy=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;" parent="1" source="2tT6C2cmZIHD40CZ8NEw-7" target="2tT6C2cmZIHD40CZ8NEw-5" edge="1">
+          <mxGeometry x="0.2" y="10" relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="90" y="130" />
+            </Array>
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="2tT6C2cmZIHD40CZ8NEw-7" value="Ökosystem" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="160" y="90" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="2tT6C2cmZIHD40CZ8NEw-22" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;curved=1;fillColor=#d5e8d4;strokeColor=#82b366;exitX=0;exitY=0;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="2tT6C2cmZIHD40CZ8NEw-1" target="2tT6C2cmZIHD40CZ8NEw-7" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="478" y="130" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="2tT6C2cmZIHD40CZ8NEw-23" value="Geringere Ökosystemleistungen" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="2tT6C2cmZIHD40CZ8NEw-22" vertex="1" connectable="0">
+          <mxGeometry x="-0.0399" y="-2" relative="1" as="geometry">
+            <mxPoint y="2" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="2tT6C2cmZIHD40CZ8NEw-29" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;curved=1;fillColor=#fff2cc;strokeColor=#d6b656;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" parent="1" source="2tT6C2cmZIHD40CZ8NEw-27" target="2tT6C2cmZIHD40CZ8NEw-28" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="860" y="630" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="2tT6C2cmZIHD40CZ8NEw-30" value="Mehr Schutzmassnahmen&lt;div&gt;+&lt;/div&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="2tT6C2cmZIHD40CZ8NEw-29" vertex="1" connectable="0">
+          <mxGeometry x="0.1862" y="-2" relative="1" as="geometry">
+            <mxPoint x="47" y="-38" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="2tT6C2cmZIHD40CZ8NEw-27" value="Schutzmassnahmen" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="800" y="360" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="2tT6C2cmZIHD40CZ8NEw-31" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;curved=1;fillColor=#fff2cc;strokeColor=#d6b656;" parent="1" source="2tT6C2cmZIHD40CZ8NEw-28" target="2tT6C2cmZIHD40CZ8NEw-2" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="2tT6C2cmZIHD40CZ8NEw-32" value="Bessere Habitatsqualität&lt;div&gt;+&lt;/div&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="2tT6C2cmZIHD40CZ8NEw-31" vertex="1" connectable="0">
+          <mxGeometry x="-0.3368" y="-2" relative="1" as="geometry">
+            <mxPoint y="-58" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="2tT6C2cmZIHD40CZ8NEw-28" value="Blühflächen" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="430" y="590" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="2tT6C2cmZIHD40CZ8NEw-35" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;curved=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;fillColor=#fff2cc;strokeColor=#d6b656;" parent="1" source="2tT6C2cmZIHD40CZ8NEw-1" target="2tT6C2cmZIHD40CZ8NEw-27" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="630" y="90" as="sourcePoint" />
+            <mxPoint x="427.03999999999996" y="621.04" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="860" y="170" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="2tT6C2cmZIHD40CZ8NEw-36" value="Weniger Pestiziddruck&lt;div&gt;-&lt;/div&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="2tT6C2cmZIHD40CZ8NEw-35" vertex="1" connectable="0">
+          <mxGeometry x="0.5281" y="2" relative="1" as="geometry">
+            <mxPoint x="-72" y="-28" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="2tT6C2cmZIHD40CZ8NEw-38" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;curved=1;fillColor=#f8cecc;strokeColor=#b85450;" parent="1" source="2tT6C2cmZIHD40CZ8NEw-37" target="2tT6C2cmZIHD40CZ8NEw-4" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="2tT6C2cmZIHD40CZ8NEw-40" value="Höhere Temperatur&lt;div&gt;+&lt;/div&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="2tT6C2cmZIHD40CZ8NEw-38" vertex="1" connectable="0">
+          <mxGeometry x="0.0125" y="-3" relative="1" as="geometry">
+            <mxPoint x="-23" y="-39" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="2tT6C2cmZIHD40CZ8NEw-37" value="Klimawandel" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="460" y="460" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="2tT6C2cmZIHD40CZ8NEw-51" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=1;entryY=1;entryDx=0;entryDy=0;curved=1;fillColor=#f8cecc;strokeColor=#b85450;" parent="1" source="2tT6C2cmZIHD40CZ8NEw-4" target="2tT6C2cmZIHD40CZ8NEw-1" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="410" y="390" as="sourcePoint" />
+            <mxPoint x="460" y="340" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="690" y="210" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="2tT6C2cmZIHD40CZ8NEw-52" value="Populationsrückgang&lt;div&gt;-&lt;/div&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="2tT6C2cmZIHD40CZ8NEw-51" vertex="1" connectable="0">
+          <mxGeometry x="0.1919" y="28" relative="1" as="geometry">
+            <mxPoint x="34" y="5" as="offset" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
