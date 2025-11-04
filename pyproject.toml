@@ -9,7 +9,9 @@ readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
     "bptk-py (==2.2.1)",
-    "pandas (==2.3.0)"
+    "pandas (==2.3.0)",
+    "digraph (>=0.1.4,<0.2.0)",
+    "graphviz (>=0.21,<0.22)"
 ]
 
 

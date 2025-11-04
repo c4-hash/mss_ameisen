@@ -432,6 +432,22 @@ files = [
 ]
 
 [[package]]
+name = "digraph"
+version = "0.1.4"
+description = "For plotting DiGraphs"
+optional = false
+python-versions = ">=3.0.0"
+groups = ["main"]
+files = [
+    {file = "diGraph-0.1.4-py3-none-any.whl", hash = "sha256:637c673d2304e8df529c01bf65853ad05719f502ed3cc1869168134e0d6985d4"},
+    {file = "diGraph-0.1.4.tar.gz", hash = "sha256:4429736d0dda4c965ae36fb272aced80dceca12a6363914b34b591fa81c72c8e"},
+]
+
+[package.dependencies]
+matplotlib = "*"
+numpy = "*"
+
+[[package]]
 name = "distlib"
 version = "0.3.9"
 description = "Distribution utilities"
@@ -574,6 +590,23 @@ symfont = ["sympy"]
 type1 = ["xattr ; sys_platform == \"darwin\""]
 unicode = ["unicodedata2 (>=15.1.0) ; python_version <= \"3.12\""]
 woff = ["brotli (>=1.0.1) ; platform_python_implementation == \"CPython\"", "brotlicffi (>=0.8.0) ; platform_python_implementation != \"CPython\"", "zopfli (>=0.1.4)"]
+
+[[package]]
+name = "graphviz"
+version = "0.21"
+description = "Simple Python interface for Graphviz"
+optional = false
+python-versions = ">=3.9"
+groups = ["main"]
+files = [
+    {file = "graphviz-0.21-py3-none-any.whl", hash = "sha256:54f33de9f4f911d7e84e4191749cac8cc5653f815b06738c54db9a15ab8b1e42"},
+    {file = "graphviz-0.21.tar.gz", hash = "sha256:20743e7183be82aaaa8ad6c93f8893c923bd6658a04c32ee115edb3c8a835f78"},
+]
+
+[package.extras]
+dev = ["Flake8-pyproject", "build", "flake8", "pep8-naming", "tox (>=3)", "twine", "wheel"]
+docs = ["sphinx (>=5,<7)", "sphinx-autodoc-typehints", "sphinx-rtd-theme (>=0.2.5)"]
+test = ["coverage", "pytest (>=7,<8.1)", "pytest-cov", "pytest-mock (>=3)"]
 
 [[package]]
 name = "identify"
@@ -2256,4 +2289,4 @@ files = [
 [metadata]
 lock-version = "2.1"
 python-versions = ">=3.12"
-content-hash = "3ce28ae2c3d1b3dd8b911e89b5c08d8b12f768cf86fc80171c73272a9b8e42c2"
+content-hash = "fb586eed2614fea7bac9fe9af9c819a86a5b5f00ad7c40941ebeae9158220354"
