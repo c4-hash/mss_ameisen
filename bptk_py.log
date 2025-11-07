@@ -7,3 +7,99 @@
 2025-10-28 14:12:11.215035, [WARN] The scenario manager already exists. Will not change the model. Use another name to avoid surprising errors!
 2025-10-28 14:12:20.775478, [WARN] The scenario manager already exists. Will not change the model. Use another name to avoid surprising errors!
 2025-10-28 14:13:39.661775, [WARN] The scenario manager already exists. Will not change the model. Use another name to avoid surprising errors!
+2025-11-01 12:34:44.411818, [WARN] The scenario manager already exists. Will not change the model. Use another name to avoid surprising errors!
+2025-11-01 12:37:14.092097, [WARN] The scenario manager already exists. Will not change the model. Use another name to avoid surprising errors!
+2025-11-01 12:37:35.573979, [WARN] The scenario manager already exists. Will not change the model. Use another name to avoid surprising errors!
+2025-11-01 12:38:40.699259, [WARN] The scenario manager already exists. Will not change the model. Use another name to avoid surprising errors!
+2025-11-01 12:39:39.193612, [WARN] The scenario manager already exists. Will not change the model. Use another name to avoid surprising errors!
+2025-11-01 12:39:39.337836, [WARN] Unable to simulate equation "H". Doesn't seem like it's part of the model.
+2025-11-01 12:39:39.337836, [WARN] Unable to simulate equation "S". Doesn't seem like it's part of the model.
+2025-11-01 12:39:39.384672, [WARN] Unable to simulate equation "I". Doesn't seem like it's part of the model.
+2025-11-01 12:39:39.384672, [WARN] Unable to simulate equation "N". Doesn't seem like it's part of the model.
+2025-11-01 12:39:39.432145, [WARN] Unable to simulate equation "E". Doesn't seem like it's part of the model.
+2025-11-01 12:39:39.432145, [WARN] Unable to simulate equation "W". Doesn't seem like it's part of the model.
+2025-11-01 12:39:39.435132, [ERROR] No simulation model containing equation "A". Did you maybe mean one of "E, dE, FRAG"?
+2025-11-01 12:39:43.351571, [WARN] The scenario manager already exists. Will not change the model. Use another name to avoid surprising errors!
+2025-11-01 12:39:43.478890, [WARN] Unable to simulate equation "A". Doesn't seem like it's part of the model.
+2025-11-01 12:39:43.480269, [WARN] Unable to simulate equation "H". Doesn't seem like it's part of the model.
+2025-11-01 12:39:43.524038, [WARN] Unable to simulate equation "S". Doesn't seem like it's part of the model.
+2025-11-01 12:39:43.524038, [WARN] Unable to simulate equation "I". Doesn't seem like it's part of the model.
+2025-11-01 12:39:43.525041, [WARN] Unable to simulate equation "N". Doesn't seem like it's part of the model.
+2025-11-01 12:39:43.569123, [WARN] Unable to simulate equation "E". Doesn't seem like it's part of the model.
+2025-11-01 12:39:43.570117, [WARN] Unable to simulate equation "W". Doesn't seem like it's part of the model.
+2025-11-01 12:39:43.572118, [ERROR] No simulation model containing equation "A". Did you maybe mean one of "E, dE, FRAG"?
+2025-11-01 12:39:53.241304, [WARN] The scenario manager already exists. Will not change the model. Use another name to avoid surprising errors!
+2025-11-01 12:39:53.294307, [WARN] Unable to simulate equation "A". Doesn't seem like it's part of the model.
+2025-11-01 12:39:53.297312, [WARN] Unable to simulate equation "H". Doesn't seem like it's part of the model.
+2025-11-01 12:39:53.299324, [WARN] Unable to simulate equation "S". Doesn't seem like it's part of the model.
+2025-11-01 12:39:53.302326, [WARN] Unable to simulate equation "I". Doesn't seem like it's part of the model.
+2025-11-01 12:39:53.305324, [WARN] Unable to simulate equation "N". Doesn't seem like it's part of the model.
+2025-11-01 12:39:53.309324, [WARN] Unable to simulate equation "E". Doesn't seem like it's part of the model.
+2025-11-01 12:39:53.312849, [WARN] Unable to simulate equation "W". Doesn't seem like it's part of the model.
+2025-11-01 12:39:53.315425, [ERROR] No simulation model containing equation "A". Did you maybe mean one of "E, dE, FRAG"?
+2025-11-01 12:41:41.715509, [WARN] The scenario manager already exists. Will not change the model. Use another name to avoid surprising errors!
+2025-11-01 12:41:41.798142, [WARN] Unable to simulate equation "A". Doesn't seem like it's part of the model.
+2025-11-01 12:41:41.800524, [WARN] Unable to simulate equation "H". Doesn't seem like it's part of the model.
+2025-11-01 12:41:41.803044, [WARN] Unable to simulate equation "S". Doesn't seem like it's part of the model.
+2025-11-01 12:41:41.805266, [WARN] Unable to simulate equation "I". Doesn't seem like it's part of the model.
+2025-11-01 12:41:41.807282, [WARN] Unable to simulate equation "N". Doesn't seem like it's part of the model.
+2025-11-01 12:41:41.809317, [WARN] Unable to simulate equation "E". Doesn't seem like it's part of the model.
+2025-11-01 12:41:41.811336, [WARN] Unable to simulate equation "W". Doesn't seem like it's part of the model.
+2025-11-01 12:41:41.812332, [ERROR] No simulation model containing equation "A". Did you maybe mean one of "E, dE, FRAG"?
+2025-11-07 11:53:37.116562, [WARN] Unable to simulate equation "ant_collonies". Doesn't seem like it's part of the model.
+2025-11-07 11:53:37.116562, [WARN] Unable to simulate equation "invasive". Doesn't seem like it's part of the model.
+2025-11-07 11:53:37.117563, [WARN] Unable to simulate equation "habitat". Doesn't seem like it's part of the model.
+2025-11-07 11:53:37.118564, [WARN] Unable to simulate equation "climate_change". Doesn't seem like it's part of the model.
+2025-11-07 11:53:37.118564, [WARN] Unable to simulate equation "ressource". Doesn't seem like it's part of the model.
+2025-11-07 11:53:37.119562, [ERROR] No simulation model containing equation "ant_collonies". Did you maybe mean one of "Ameisen, Erderwärmung, ressourcen für invasive Art"?
+2025-11-07 11:53:37.120563, [ERROR] No simulation model containing equation "invasive". Did you maybe mean one of "Ameisen, Invasive Ameisen, Erderwärmung"?
+2025-11-07 11:53:37.120563, [ERROR] No simulation model containing equation "habitat". Did you maybe mean one of "Ameisen, Habitatsqualität, Erderwärmung"?
+2025-11-07 11:53:37.122068, [ERROR] No simulation model containing equation "climate_change". Did you maybe mean one of "Ameisen, Erderwärmung, Habitatsqualität"?
+2025-11-07 11:53:37.122068, [ERROR] No simulation model containing equation "ressource". Did you maybe mean one of "Ameisen, Erderwärmung, Habitatsqualität"?
+2025-11-07 11:53:37.123559, [ERROR] No output data produced.
+2025-11-07 13:38:15.999055, [WARN] The scenario manager already exists. Will not change the model. Use another name to avoid surprising errors!
+2025-11-07 13:41:03.921815, [WARN] Unable to simulate equation "ant_colonies". Doesn't seem like it's part of the model.
+2025-11-07 13:41:03.923979, [WARN] Unable to simulate equation "ant_colonies". Doesn't seem like it's part of the model.
+2025-11-07 13:41:03.923979, [ERROR] No simulation model containing equation "ant_colonies". Did you maybe mean one of "invasive, Ameisen, Erderwärmung"?
+2025-11-07 13:41:03.926282, [ERROR] No output data produced.
+2025-11-07 13:41:27.505019, [WARN] The scenario manager already exists. Will not change the model. Use another name to avoid surprising errors!
+2025-11-07 13:43:40.287841, [WARN] The scenario manager already exists. Will not change the model. Use another name to avoid surprising errors!
+2025-11-07 13:44:09.992053, [WARN] The scenario manager already exists. Will not change the model. Use another name to avoid surprising errors!
+2025-11-07 13:45:09.179206, [WARN] The scenario manager already exists. Will not change the model. Use another name to avoid surprising errors!
+2025-11-07 13:45:50.761600, [WARN] The scenario manager already exists. Will not change the model. Use another name to avoid surprising errors!
+2025-11-07 13:46:43.038409, [WARN] The scenario manager already exists. Will not change the model. Use another name to avoid surprising errors!
+2025-11-07 13:51:29.117040, [WARN] The scenario manager already exists. Will not change the model. Use another name to avoid surprising errors!
+2025-11-07 13:58:06.695893, [WARN] The scenario manager already exists. Will not change the model. Use another name to avoid surprising errors!
+2025-11-07 14:01:04.838648, [WARN] The scenario manager already exists. Will not change the model. Use another name to avoid surprising errors!
+2025-11-07 14:01:14.572836, [WARN] The scenario manager already exists. Will not change the model. Use another name to avoid surprising errors!
+2025-11-07 14:12:47.175368, [WARN] The scenario manager already exists. Will not change the model. Use another name to avoid surprising errors!
+2025-11-07 14:13:12.269780, [WARN] The scenario manager already exists. Will not change the model. Use another name to avoid surprising errors!
+2025-11-07 14:16:01.725747, [WARN] The scenario manager already exists. Will not change the model. Use another name to avoid surprising errors!
+2025-11-07 14:16:25.469923, [WARN] Unable to simulate equation "ant_colonies". Doesn't seem like it's part of the model.
+2025-11-07 14:16:25.474193, [ERROR] No simulation model containing equation "ant_colonies". Did you maybe mean one of "ant_growth, resources, invasive"?
+2025-11-07 14:16:25.702652, [WARN] The scenario manager already exists. Will not change the model. Use another name to avoid surprising errors!
+2025-11-07 14:16:25.783830, [WARN] Unable to simulate equation "ant_colonies". Doesn't seem like it's part of the model.
+2025-11-07 14:16:25.785349, [WARN] Unable to simulate equation "ant_colonies". Doesn't seem like it's part of the model.
+2025-11-07 14:16:25.786875, [ERROR] No simulation model containing equation "ant_colonies". Did you maybe mean one of "ant_growth, resources, invasive"?
+2025-11-07 14:16:25.788396, [ERROR] No output data produced.
+2025-11-07 14:16:47.076807, [WARN] The scenario manager already exists. Will not change the model. Use another name to avoid surprising errors!
+2025-11-07 14:16:47.135485, [WARN] Unable to simulate equation "ant_colonies". Doesn't seem like it's part of the model.
+2025-11-07 14:16:47.136487, [WARN] Unable to simulate equation "ant_colonies". Doesn't seem like it's part of the model.
+2025-11-07 14:16:47.137488, [ERROR] No simulation model containing equation "ant_colonies". Did you maybe mean one of "ant_growth, resources, invasive"?
+2025-11-07 14:16:47.138863, [ERROR] No output data produced.
+2025-11-07 14:17:10.447116, [WARN] The scenario manager already exists. Will not change the model. Use another name to avoid surprising errors!
+2025-11-07 14:17:10.504657, [WARN] Unable to simulate equation "ant_colonies". Doesn't seem like it's part of the model.
+2025-11-07 14:17:10.506661, [WARN] Unable to simulate equation "ant_colonies". Doesn't seem like it's part of the model.
+2025-11-07 14:17:10.507663, [ERROR] No simulation model containing equation "ant_colonies". Did you maybe mean one of "ant_growth, resources, invasive"?
+2025-11-07 14:17:10.508663, [ERROR] No output data produced.
+2025-11-07 14:17:20.835306, [WARN] The scenario manager already exists. Will not change the model. Use another name to avoid surprising errors!
+2025-11-07 14:17:20.890266, [WARN] Unable to simulate equation "ant_colonies". Doesn't seem like it's part of the model.
+2025-11-07 14:17:20.891752, [WARN] Unable to simulate equation "ant_colonies". Doesn't seem like it's part of the model.
+2025-11-07 14:17:20.892752, [ERROR] No simulation model containing equation "ant_colonies". Did you maybe mean one of "ant_growth, resources, invasive"?
+2025-11-07 14:17:20.892752, [ERROR] No output data produced.
+2025-11-07 14:17:40.770568, [WARN] The scenario manager already exists. Will not change the model. Use another name to avoid surprising errors!
+2025-11-07 14:18:44.186441, [WARN] The scenario manager already exists. Will not change the model. Use another name to avoid surprising errors!
+2025-11-07 14:19:12.850579, [WARN] The scenario manager already exists. Will not change the model. Use another name to avoid surprising errors!
+2025-11-07 14:19:51.124712, [WARN] The scenario manager already exists. Will not change the model. Use another name to avoid surprising errors!
+2025-11-07 14:24:25.256720, [WARN] The scenario manager already exists. Will not change the model. Use another name to avoid surprising errors!
+2025-11-07 14:25:12.811428, [WARN] The scenario manager already exists. Will not change the model. Use another name to avoid surprising errors!
