@@ -103,6 +103,12 @@
 2025-11-07 14:19:51.124712, [WARN] The scenario manager already exists. Will not change the model. Use another name to avoid surprising errors!
 2025-11-07 14:24:25.256720, [WARN] The scenario manager already exists. Will not change the model. Use another name to avoid surprising errors!
 2025-11-07 14:25:12.811428, [WARN] The scenario manager already exists. Will not change the model. Use another name to avoid surprising errors!
+2025-11-13 10:13:18.115808, [WARN] The scenario manager already exists. Will not change the model. Use another name to avoid surprising errors!
+2025-11-13 10:13:36.776569, [WARN] The scenario manager already exists. Will not change the model. Use another name to avoid surprising errors!
+2025-11-13 10:14:04.933798, [WARN] The scenario manager already exists. Will not change the model. Use another name to avoid surprising errors!
+2025-11-13 10:14:37.635851, [WARN] The scenario manager already exists. Will not change the model. Use another name to avoid surprising errors!
+2025-11-13 10:15:31.030076, [WARN] The scenario manager already exists. Will not change the model. Use another name to avoid surprising errors!
+2025-11-13 10:15:52.837507, [WARN] The scenario manager already exists. Will not change the model. Use another name to avoid surprising errors!
 2025-11-13 08:14:43.007681, [WARN] The scenario manager already exists. Will not change the model. Use another name to avoid surprising errors!
 2025-11-13 09:59:54.222078, [WARN] The scenario manager already exists. Will not change the model. Use another name to avoid surprising errors!
 2025-11-13 10:06:14.402023, [WARN] The scenario manager already exists. Will not change the model. Use another name to avoid surprising errors!
@@ -111,3 +117,6 @@
 2025-11-13 11:00:33.325455, [WARN] The scenario manager already exists. Will not change the model. Use another name to avoid surprising errors!
 2025-11-13 11:01:12.675234, [WARN] The scenario manager already exists. Will not change the model. Use another name to avoid surprising errors!
 2025-11-13 11:33:22.814066, [WARN] The scenario manager already exists. Will not change the model. Use another name to avoid surprising errors!
+2025-11-20 07:52:41.023293, [WARN] The scenario manager already exists. Will not change the model. Use another name to avoid surprising errors!
+2025-11-20 07:56:21.581188, [WARN] The scenario manager already exists. Will not change the model. Use another name to avoid surprising errors!
+2025-11-20 07:57:53.595258, [ERROR] Scenario "increase_0.5C" not found in any scenario manager! Did you maybe mean one of "base, Test"?
