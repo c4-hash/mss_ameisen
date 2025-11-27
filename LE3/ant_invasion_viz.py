@@ -82,8 +82,8 @@ def agent_portrayal(agent):
 model_params = {
     "width": 30,
     "height": 30,
-    "initial_native": 60,
-    "initial_invasive": 5,
+    "initial_native": 15,
+    "initial_invasive": 0,
     "resource_density": 0.1,
     "patch_max": 10.0,
     "patch_initial_share": 0.5,
@@ -118,6 +118,7 @@ Space = make_space_component(agent_portrayal)
 PopPlot = make_plot_component(["NativeAnts", "InvasiveAnts"])
 EnvPlot = make_plot_component(["TotalResources"])
 HabPlot = make_plot_component(["HabitatQuality", "Warming"])
+StoredPlot = make_plot_component(["StoredFood"])
 
 # -------------------------------------------------------
 # SolaraViz-Seite
@@ -125,7 +126,7 @@ HabPlot = make_plot_component(["HabitatQuality", "Warming"])
 
 page = SolaraViz(
     model=model,
-    components=[Space, PopPlot, EnvPlot, HabPlot],
+    components=[Space, PopPlot, EnvPlot, HabPlot, StoredPlot],
     model_params=model_params,
     name="Ant Invasion Model (Native vs Invasive, Habitat, Resources, Warming)",
 )
