@@ -79,7 +79,7 @@ def agent_portrayal(agent):
 # Standard-Parameter für das Modell
 # -------------------------------------------------------
 
-model_params = {
+model_params_test = {
     "width": 30,
     "height": 30,
     "initial_native": 15,
@@ -104,6 +104,35 @@ model_params = {
     "warming_rate": 0.001,
     "climate_habitat_loss": 0.001,
     "invasive_habitat_impact": 0.0001,
+    "seed": 42,
+}
+
+model_params = {
+    "width": 30,
+    "height": 30,
+    "initial_native": 60,
+    "initial_invasive": 5,
+    "resource_density": 0.12,
+    "patch_max": 12.0,
+    "patch_initial_share": 0.55,
+    "patch_regen": 0.04,
+    "native_energy": 5.0,
+    "invasive_energy": 5.0,
+    "metabolism_native": 0.25,
+    "metabolism_invasive": 0.27,
+    "bite_native": 0.9,
+    "bite_invasive": 1.2,
+    "native_repro_base": 0.13,
+    "invasive_repro_base": 0.17,
+    "repro_threshold_native": 8.0,
+    "repro_threshold_invasive": 8.0,
+    "attack_prob": 0.45,
+    "habitat_quality_start": 1.0,
+    "warming_start": 0.0,
+    "warming_rate": 0.018,
+    "climate_habitat_loss": 0.004,
+    "invasive_habitat_impact": 0.0008,
+    "n_native_hills": 1,
     "seed": 42,
 }
 
