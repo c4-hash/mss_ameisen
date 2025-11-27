@@ -116,5 +116,4 @@ Inhalt:
 │   └── Systemgrenzen.md
 ├── pyproject.toml                 # Python-Projektkonfiguration (u.a. BPTK-Py, Mesa)
 ├── poetry.lock
-├── bptk_py.log                    # Log von BPTK-Py (kann ignoriert werden)
-└── .venv/                         # lokale virtuelle Umgebung (nicht relevant für Abgabe)
+└── bptk_py.log                    # Log von BPTK-Py (kann ignoriert werden)
