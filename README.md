@@ -36,11 +36,15 @@ Diese Artefakte werden in LE2–LE4 weiterverwendet.
 
 ### LE 2 – Systemdynamiksimulation (BPTK-Py)
 
+
 **Ort:** `Causal_loop_Simplified.drawio` - Abschnitt „LE 2****
+
 
 Inhalt:
 
+
 - Die umgesetzte Kaussalschleife inkl. Fragestellung
+
 
 **Ort:** `Notebooks/Ameisen_SD_BPTK.ipynb` – Abschnitt **„LE 2: Systemdynamiksimulationen“**
 
@@ -90,11 +94,15 @@ Hier wird die Mikro-Ebene (einzelne Ameisen / Kolonien) modelliert und mit der M
 
 ### LE 4 – Szenarien & integrierte Analyse
 
+
 **Ort:** `Causal_loop_Simplified.drawio` - Abschnitt „LE 4****
+
 
 Inhalt:
 
+
 - Die umgesetzte Kaussalschleife inkl. Fragestellung und der Übertragungskanäle
+
 
 **Ort:** `Notebooks/Ameisen_SD_BPTK.ipynb` – Abschnitt **„LE 4: Szenarien“**
 
