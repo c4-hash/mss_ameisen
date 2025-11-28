@@ -37,7 +37,7 @@ Diese Artefakte werden in LE2–LE4 weiterverwendet.
 ### LE 2 – Systemdynamiksimulation (BPTK-Py)
 
 
-**Ort:** [Causal_loop_Simplified.drawio](SystemModellierungen/Causal_loop_Simplified.drawio) - Abschnitt „LE 2****
+**Ort:** [Causal_loop_Simplified.drawio](SystemModellierungen/Causal_loop_Simplified.drawio) - Abschnitt **„LE 2“**
 
 
 Inhalt:
@@ -95,7 +95,7 @@ Hier wird die Mikro-Ebene (einzelne Ameisen / Kolonien) modelliert und mit der M
 ### LE 4 – Szenarien & integrierte Analyse
 
 
-**Ort:** [Causal_loop_Simplified.drawio](SystemModellierungen/Causal_loop_Simplified.drawio) - Abschnitt „LE 4****
+**Ort:** [Causal_loop_Simplified.drawio](SystemModellierungen/Causal_loop_Simplified.drawio) - Abschnitt **„LE 4“**
 
 
 Inhalt:
