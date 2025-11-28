@@ -16,18 +16,18 @@ Im Fokus stehen:
 
 ### LE 1 – Systemkarte & Systemgrenzen
 
-**Ordner:** `SystemModellierungen/`
+**Ordner:** [SystemModellierungen](SystemModellierungen/)
 
 Enthält die Artefakte aus LE1:
 
-- `Causal_loop_Simplified.drawio` / `Causal_loop.drawio(.png)`  
+- [Causal_loop_Simplified.drawio](SystemModellierungen/Causal_loop_Simplified.drawio) / [Causal_loop.drawio.png](SystemModellierungen/Causal_loop.drawio.png)  
   Vereinfachtes Kausalschleifen-Diagramm mit **1 Loop**:
   - Ameisenpopulation → Ressourcen für invasive Art → invasive Arten → Habitatqualität → Ameisenpopulation
-- `Stakeholder_Diagramm.drawio`  
+- [Stakeholder_Diagramm.drawio](SystemModellierungen/Stakeholder_Diagramm.drawio)  
   Stakeholder-Map für diesen Loop (Ameisen, invasive Arten).
-- `mini_power_interest_raster_reduced.png`  
+- [mini_power_interest_raster_reduced.png](SystemModellierungen/mini_power_interest_raster_reduced.png)
   Reduziertes Power-Interest-Raster für die wichtigsten Stakeholder.
-- `Systemgrenzen.md`  
+- [Systemgrenzen.md](SystemModellierungen/Systemgrenzen.md)
   Textliche Definition der Systemgrenzen (Raum: lokales Wald-/Saumbiotop, Zeit: 20 Jahre, endogene Variablen, exogener Treiber Erderwärmung).
 
 Diese Artefakte werden in LE2–LE4 weiterverwendet.
@@ -37,7 +37,7 @@ Diese Artefakte werden in LE2–LE4 weiterverwendet.
 ### LE 2 – Systemdynamiksimulation (BPTK-Py)
 
 
-**Ort:** `Causal_loop_Simplified.drawio` - Abschnitt „LE 2****
+**Ort:** [Causal_loop_Simplified.drawio](SystemModellierungen/Causal_loop_Simplified.drawio) - Abschnitt „LE 2****
 
 
 Inhalt:
@@ -46,7 +46,7 @@ Inhalt:
 - Die umgesetzte Kaussalschleife inkl. Fragestellung
 
 
-**Ort:** `Notebooks/Ameisen_SD_BPTK.ipynb` – Abschnitt **„LE 2: Systemdynamiksimulationen“**
+**Ort:** [Ameisen_SD_BPTK.ipynb](Notebooks/Ameisen_SD_BPTK.ipynb) – Abschnitt **„LE 2: Systemdynamiksimulationen“**
 
 Inhalt:
 
@@ -75,17 +75,17 @@ Inhalt:
 
 ### LE 3 – Agentenbasierte Modellierung (Mesa)
 
-**Ordner:** `LE3/`
+**Ordner:** [LE3](LE3/)
 
 Inhalt:
 
-- `LE3.ipynb`  
+- [LE3.ipynb](LE3/LE3.ipynb) 
   Notebook für die agentenbasierte Simulation (Modellbeschreibung, Experimente, Auswertung).
-- `ants_invasion_model.py`  
+- [ants_invasion_model.py](LE3/ants_invasion_model.py)  
   Mesa-Modelldefinition (Grid, Agenten, Interaktionen).
-- `ants_abm_mesa.py`  
+- [ants_abm_mesa.py](LE3/ants_abm_mesa.py) 
   Start-Skript / Helper für die Simulation.
-- `ants_invasion_viz.py`, `ants_viz.py`  
+- [ants_invasion_viz.py](LE3/ants_invasion_viz.py), [ants_viz.py](LE3/ants_viz.py)
   Visualisierungen (z.B. Grid-Darstellung, Zeitreihen).
 
 Hier wird die Mikro-Ebene (einzelne Ameisen / Kolonien) modelliert und mit der Makro-Dynamik aus LE1/LE2 verknüpft.
@@ -95,7 +95,7 @@ Hier wird die Mikro-Ebene (einzelne Ameisen / Kolonien) modelliert und mit der M
 ### LE 4 – Szenarien & integrierte Analyse
 
 
-**Ort:** `Causal_loop_Simplified.drawio` - Abschnitt „LE 4****
+**Ort:** [Causal_loop_Simplified.drawio](SystemModellierungen/Causal_loop_Simplified.drawio) - Abschnitt „LE 4****
 
 
 Inhalt:
@@ -104,7 +104,7 @@ Inhalt:
 - Die umgesetzte Kaussalschleife inkl. Fragestellung und der Übertragungskanäle
 
 
-**Ort:** `Notebooks/Ameisen_SD_BPTK.ipynb` – Abschnitt **„LE 4: Szenarien“**
+**Ort:** [Ameisen_SD_BPTK.ipynb](Notebooks/Ameisen_SD_BPTK.ipynb) – Abschnitt **„LE 4: Szenarien“**
 
 Inhalt:
 
