@@ -107,11 +107,13 @@ class NativeAntHill(Agent):
 
 class NativeAnt(Agent):
     """
-    Einheimische Ameise.
+    Einheimische Ameise (Arbeiterin einer Kolonie).
 
     - frisst Ressourcen
-    - wird über den Ameisenhügel (Königin) vermehrt
+    - wird über den Ameisenhügel (Königin) vermehrt (nicht selbst!)
     - kann von invasiven Ameisen getötet/unterdrückt werden
+    - läuft bei hoher Energie zum nächstgelegenen NativeAntHill zurück
+      und lagert dort Nahrung ein
     """
 
     def __init__(
@@ -122,12 +124,19 @@ class NativeAnt(Agent):
         bite_size: float,
         base_reproduce_prob: float,
         reproduce_threshold: float,
+        n_workers: int = 200,
+        n_males: int = 20,
     ):
         super().__init__(model)
+        # Kolonie-Metadaten (informativ; Reproduktion passiert im NativeAntHill)
+        self.queen_alive = True
+        self.n_workers = int(n_workers)
+        self.n_males = int(n_males)
+
         self.energy = float(energy)
         self.metabolism = float(metabolism)
         self.bite_size = float(bite_size)
-        # bleiben als Felder vorhanden, werden aber nicht benutzt (Arbeiterinnen reproduzieren nicht)
+        # bleiben als Felder vorhanden, werden aber nicht für Arbeiter-Repro genutzt
         self.base_reproduce_prob = float(base_reproduce_prob)
         self.reproduce_threshold = float(reproduce_threshold)
 
@@ -135,8 +144,8 @@ class NativeAnt(Agent):
         self.deposit_rate = 0.5
         # Energiepuffer, damit die Ameise sich nicht komplett "leer" macht
         self.min_energy = 1.0
-        self.return_threshold = 6.0
-        self.min_food_to_move = 1.0
+        self.return_threshold = 6.0          # ab hier lieber heim als weiter fressen
+        self.min_food_to_move = 1.0          # mind. Ressourcenmenge, um gezielt hinzulaufen
 
     # ---------- Verhalten ----------
 
@@ -144,8 +153,6 @@ class NativeAnt(Agent):
         neighbors = self.model.grid.get_neighborhood(
             self.pos, moore=True, include_center=False
         )
-        # Alle Agenten in diesen Positionen holen
-        neighbor_agents = self.model.grid.get_cell_list_contents(neighbors)
 
         # 💡 Wenn genug Energie: versuche, in Richtung nächster Ameisenhügel zu laufen
         if self.energy >= self.return_threshold:
@@ -176,12 +183,27 @@ class NativeAnt(Agent):
                 self.model.grid.move_agent(self, new_pos)
                 return
 
-        good_patches = [a for a in neighbor_agents if isinstance(a, ResourcePatch) and a.amount >= self.model.min_food_to_move ]
+        # 🔍 sonst: schaue gezielt nach Ressourcenzellen in der Nachbarschaft
+        best_cells = []
+        best_amount = None
+        for n in neighbors:
+            cell_agents = self.model.grid.get_cell_list_contents([n])
+            patches = [a for a in cell_agents if isinstance(a, ResourcePatch)]
+            if not patches:
+                continue
+            amount = patches[0].amount
+            if amount < self.min_food_to_move:
+                continue
 
-        if good_patches:
-            patch = self.random.choice(good_patches)
-            new_pos = patch.pos
-            self.model.grid.move_agent(self,new_pos)
+            if best_amount is None or amount > best_amount:
+                best_amount = amount
+                best_cells = [n]
+            elif amount == best_amount:
+                best_cells.append(n)
+
+        if best_cells:
+            new_pos = self.random.choice(best_cells)
+            self.model.grid.move_agent(self, new_pos)
             return
 
         # sonst: normales zufälliges Umherwandern
@@ -221,6 +243,7 @@ class NativeAnt(Agent):
         self.energy -= accepted
 
     def die(self):
+        # wenn du willst, könntest du hier auch n_workers-- einer Kolonie zählen
         self.model.grid.remove_agent(self)
         self.remove()
 
@@ -233,16 +256,13 @@ class NativeAnt(Agent):
 
         self.move()
         self.eat()
-        # keine Selbst-Reproduktion mehr
         self.deposit_food()
-    
+
     def nearest_hill_pos(self):
         """
         Finde die Position des nächstgelegenen NativeAntHill (falls vorhanden).
         Berücksichtigt torus-Grid.
         """
-        from ants_invasion_model import NativeAntHill  # falls oben nicht importiert
-
         hills = self.model.agents_by_type.get(NativeAntHill, [])
         if not hills:
             return None
@@ -267,11 +287,12 @@ class NativeAnt(Agent):
 
 class InvasiveAnt(Agent):
     """
-    Invasive Ameise.
+    Invasive Ameise (Kolonie-Proxy).
 
     - frisst Ressourcen
     - Fortpflanzung hängt positiv von der Ressourcensituation ab
     - tötet einheimische Ameisen mit Wahrscheinlichkeit attack_prob
+    - bewegt sich gezielt in Richtung ressourcenreicher Nachbarzellen
     """
 
     def __init__(
@@ -283,8 +304,15 @@ class InvasiveAnt(Agent):
         base_reproduce_prob: float,
         reproduce_threshold: float,
         attack_prob: float,
+        n_workers: int = 300,
+        n_males: int = 30,
     ):
         super().__init__(model)
+        # Kolonie-Metadaten
+        self.queen_alive = True
+        self.n_workers = int(n_workers)
+        self.n_males = int(n_males)
+
         self.energy = float(energy)
         self.metabolism = float(metabolism)
         self.bite_size = float(bite_size)
@@ -292,11 +320,42 @@ class InvasiveAnt(Agent):
         self.reproduce_threshold = float(reproduce_threshold)
         self.attack_prob = float(attack_prob)
 
-    def move(self):
+    # ---------- FOOD-SEARCH AI ----------
+
+    def _best_resource_neighbor(self):
         neighbors = self.model.grid.get_neighborhood(
             self.pos, moore=True, include_center=True
         )
-        new_pos = self.random.choice(neighbors)
+
+        best_cells = []
+        best_score = -1.0
+
+        for cell in neighbors:
+            cell_agents = self.model.grid.get_cell_list_contents([cell])
+            patches = [a for a in cell_agents if isinstance(a, ResourcePatch)]
+            if patches:
+                base = patches[0].amount
+            else:
+                base = 0.0
+
+            # leichtes Rauschen, damit sie nicht komplett deterministisch sind
+            score = base + self.random.random() * 0.1
+
+            if score > best_score:
+                best_score = score
+                best_cells = [cell]
+            elif score == best_score:
+                best_cells.append(cell)
+
+        if not best_cells:
+            best_cells = neighbors
+
+        return self.random.choice(best_cells)
+
+    # ---------- Verhalten ----------
+
+    def move(self):
+        new_pos = self._best_resource_neighbor()
         self.model.grid.move_agent(self, new_pos)
 
     def eat(self):
@@ -332,10 +391,15 @@ class InvasiveAnt(Agent):
                 base_reproduce_prob=self.base_reproduce_prob,
                 reproduce_threshold=self.reproduce_threshold,
                 attack_prob=self.attack_prob,
+                n_workers=max(80, self.n_workers // 2),
+                n_males=max(8, self.n_males // 4),
             )
             self.model.grid.place_agent(child, self.pos)
 
     def die(self):
+        self.queen_alive = False
+        self.n_workers = 0
+        self.n_males = 0
         self.model.grid.remove_agent(self)
         self.remove()
 
@@ -403,6 +467,7 @@ class AntInvasionModel(Model):
         self.width = width
         self.height = height
         self.grid = MultiGrid(width, height, torus=True)
+        self.min_food_to_move = 1.0
 
         # Globale Stocks
         self.habitat_quality = habitat_quality_start
