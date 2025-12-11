@@ -67,7 +67,7 @@ def agent_portrayal(agent):
 
     # Fallback
     return {
-        "color": "gray",
+        "color": "black",
         "size": 30,
         "marker": "x",
         "alpha": 0.8,
@@ -79,11 +79,11 @@ def agent_portrayal(agent):
 # Standard-Parameter für das Modell
 # -------------------------------------------------------
 
-model_params_test = {
-    "width": 30,
-    "height": 30,
-    "initial_native": 15,
-    "initial_invasive": 0,
+model_params = {
+    "width": 51,
+    "height": 51,
+    "initial_native": 30,
+    "initial_invasive": 30,
     "resource_density": 0.1,
     "patch_max": 10.0,
     "patch_initial_share": 0.5,
@@ -107,35 +107,6 @@ model_params_test = {
     "seed": 42,
 }
 
-model_params = {
-    "width": 30,
-    "height": 30,
-    "initial_native": 60,
-    "initial_invasive": 5,
-    "resource_density": 0.12,
-    "patch_max": 12.0,
-    "patch_initial_share": 0.55,
-    "patch_regen": 0.04,
-    "native_energy": 5.0,
-    "invasive_energy": 5.0,
-    "metabolism_native": 0.25,
-    "metabolism_invasive": 0.27,
-    "bite_native": 0.9,
-    "bite_invasive": 1.2,
-    "native_repro_base": 0.13,
-    "invasive_repro_base": 0.17,
-    "repro_threshold_native": 8.0,
-    "repro_threshold_invasive": 8.0,
-    "attack_prob": 0.45,
-    "habitat_quality_start": 1.0,
-    "warming_start": 0.0,
-    "warming_rate": 0.018,
-    "climate_habitat_loss": 0.004,
-    "invasive_habitat_impact": 0.0008,
-    "n_native_hills": 1,
-    "seed": 42,
-}
-
 # Modellinstanz
 model = AntInvasionModel(**model_params)
 
@@ -147,7 +118,7 @@ Space = make_space_component(agent_portrayal)
 PopPlot = make_plot_component(["NativeAnts", "InvasiveAnts"])
 EnvPlot = make_plot_component(["TotalResources"])
 HabPlot = make_plot_component(["HabitatQuality", "Warming"])
-StoredPlot = make_plot_component(["StoredFood"])
+StoredPlot = make_plot_component(["StoredFoodNative", "StoredFoodInvasive"])
 
 # -------------------------------------------------------
 # SolaraViz-Seite
