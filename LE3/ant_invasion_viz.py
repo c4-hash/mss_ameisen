@@ -82,7 +82,7 @@ def agent_portrayal(agent):
 model_params = {
     "width": 30,
     "height": 30,
-    "initial_native": 15,
+    "initial_native": 30,
     "initial_invasive": 0,
     "resource_density": 0.1,
     "patch_max": 10.0,

@@ -47,7 +47,7 @@ class NativeAntHill(Agent):
         model: Model,
         stored_food: float = 0.0,
         food_capacity: float = 200.0,
-        reproduce_threshold: float = 20.0,
+        reproduce_threshold: float = 5.0,
         max_new_ants_per_step: int = 3,
     ):
         super().__init__(model)
@@ -395,6 +395,8 @@ class AntInvasionModel(Model):
         invasive_habitat_impact: float = 0.001,  # zusätzl. Verlust pro invasiver Ameise / Schritt
         n_native_hills: int = 1,
         seed: Optional[int] = 42,
+        min_food_to_move: float =  1.0,
+
     ):
         super().__init__(seed=seed)
 
@@ -409,6 +411,8 @@ class AntInvasionModel(Model):
         self.warming_rate = warming_rate
         self.climate_habitat_loss = climate_habitat_loss
         self.invasive_habitat_impact = invasive_habitat_impact
+        
+        self.min_food_to_move = min_food_to_move
 
         # Parameter speichern, damit sie vom Hügel genutzt werden können
         self.native_energy = native_energy
@@ -444,7 +448,7 @@ class AntInvasionModel(Model):
                 model=self,
                 stored_food=0.0,
                 food_capacity=200.0,
-                reproduce_threshold=20.0,
+                reproduce_threshold=5.0,
                 max_new_ants_per_step=3,
             )
             x = self.random.randrange(width)
