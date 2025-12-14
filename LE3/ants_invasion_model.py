@@ -729,7 +729,7 @@ class AntInvasionModel(Model):
         self.warming += self.warming_rate
 
         # Klimabedingter Habitatverlust + zusätzlicher Verlust durch invasive Ameisen
-        inv = self.count_invasive()
+        inv = self.count_invasive() * 0.0001
         delta = self.climate_habitat_loss + inv * self.invasive_habitat_impact
 
         # additive Abnahme, begrenzt auf [0, 1]

@@ -101,7 +101,7 @@ model_params = {
     "attack_prob": 0.4,
     "habitat_quality_start": 1.0,
     "warming_start": 0.0,
-    "warming_rate": 0.001,
+    "warming_rate": 0.000001,
     "climate_habitat_loss": 0.001,
     "invasive_habitat_impact": 0.0001,
     "seed": 42,
