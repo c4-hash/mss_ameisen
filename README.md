@@ -80,13 +80,15 @@ Inhalt:
 Inhalt:
 
 - [LE3.ipynb](LE3/LE3.ipynb) 
-  Notebook für die agentenbasierte Simulation (Modellbeschreibung, Experimente, Auswertung).
+  Test-Notebook für die agentenbasierte Simulation.
 - [ants_invasion_model.py](LE3/ants_invasion_model.py)  
   Mesa-Modelldefinition (Grid, Agenten, Interaktionen).
 - [ants_abm_mesa.py](LE3/ants_abm_mesa.py) 
-  Start-Skript / Helper für die Simulation.
-- [ants_invasion_viz.py](LE3/ants_invasion_viz.py), [ants_viz.py](LE3/ants_viz.py)
+  Test Python Datei für erste Schritte mit Mesa und Ameisen
+- [ant_invasion_viz.py](LE3/ant_invasion_viz.py), [ants_viz.py](LE3/ants_viz.py)
   Visualisierungen (z.B. Grid-Darstellung, Zeitreihen).
+
+Die Simulation kann mit solara run LE3/ant_invasion_viz.py ausgeführt werden
 
 Hier wird die Mikro-Ebene (einzelne Ameisen / Kolonien) modelliert und mit der Makro-Dynamik aus LE1/LE2 verknüpft.
 
