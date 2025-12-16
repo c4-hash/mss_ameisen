@@ -7,7 +7,7 @@ Das Modell beschreibt, wie sich über 20 Jahre
 - die Population der **einheimischen Ameisen** (`Ameisen`),
 - die Population der **invasiven Ameisen** (`Invasive Ameisen`),
 - die **Habitatsqualität** (`Habitatsqualität`) und
-- die **Ressourcen für die invasive Art** (`Ressourcen für invasive Art`)
+- die **Ressourcen** (`Ressourcen`)
 
 unter dem Einfluss von **Erderwärmung** und **gegenseitiger Konkurrenz** entwickeln.
 
@@ -38,23 +38,29 @@ Sowohl einheimische als auch invasive Ameisen sind dabei von **Habitatqualität 
   **Erderwärmung** und **invasive Ameisen** verschlechtert. Gute Habitatqualität fördert das Wachstum beider Ameisenarten.
 
 - **Ressourcen für invasive Art (`Ressourcen für invasive Art`)**  
-  Index (0–100 %), der sich regeneriert, aber durch **einheimische Ameisen** verbraucht wird. Hohe Ressourcenverfügbarkeit fördert das Wachstum beider Ameisenarten.
+  Index (0–100 %), der sich regeneriert, aber durch **einheimische und invasive Ameisen** verbraucht wird.  
+  Hohe Ressourcenverfügbarkeit fördert das Wachstum beider Ameisenarten.
+
 
 **Kernstruktur (vereinfacht):**
 
-- `Ameisen` ↑ → `Ressourcen` ↓ → Wachstum `Invasive Ameisen` ↓  
+- `Ameisen` ↑ und `Invasive Ameisen` ↑ → `Ressourcen` ↓ → Wachstum beider Populationen ↓  
 - `Invasive Ameisen` ↑ → `Habitatsqualität` ↓ → Wachstum `Ameisen` **und** `Invasive Ameisen` ↓  
-- Hohe `Habitatsqualität` und hohe `Ressourcen` → stärkeres Wachstum beider Populationen.
+- `Invasive Ameisen` ↑ → Unterdrückung der `Ameisen` ↑ (saturierend, abhängig von beiden Populationen)
 
 ---
 
 ## Exogene Grössen
 
 - **Erderwärmung (`Erderwärmung`)**  
-  - Wird als **exogener Trend** vorgegeben (Temperaturanstieg pro Jahr).  
-  - Wirkt ausschließlich negativ auf die `Habitatsqualität` (mehr Erwärmung ⇒ stärkerer jährlicher Qualitätsverlust).  
+  - Wird als **exogener Trend** vorgegeben (Temperaturanstieg pro Jahr; Szenarien z.B. 0.02 / 0.04 / 0.06 °C/Jahr).  
+  - Startwert repräsentiert den heutigen globalen Erwärmungsstand (z.B. **1.6 °C über 1850–1900**).  
+  - Der zusätzliche jährliche Habitatdruck wird im Modell über die **zusätzliche Erwärmung ab heute** berechnet:  
+    **ΔT = max(0, Erderwärmung − 1.6)**.  
   - Es gibt **keine Rückkopplung** vom Ameisensystem auf das Klima.
 
+- **Managementmaßnahmen** gegen invasive Arten  
+  - Werden als **exogene Eingriffe** modelliert in erhöhung **invasive_loss** in **LE4 Szenarien**.
 ---
 
 ## Außerhalb der Systemgrenzen
@@ -64,7 +70,6 @@ Nicht explizit modelliert werden:
 - **Landnutzungsänderungen** (Forstwirtschaft, Landwirtschaft, Bebauung)
 - **Feinde/Prädatoren** der Ameisen
 - **detaillierte Nahrungsnetze** (konkrete Beutearten)
-- **Managementmaßnahmen** gegen invasive Arten
 - **Räumliche Ausbreitung** (z. B. Koloniewanderungen zwischen Patches)
 
 Diese Faktoren werden, falls nötig, nur im Rahmen von Annahmen oder Szenariobeschreibungen qualitativ diskutiert.
