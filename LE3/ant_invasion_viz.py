@@ -94,11 +94,10 @@ model_params = {
     "metabolism_invasive": 0.00225,
     "bite_native": 200,
     "bite_invasive": 200,
-    "attack_prob": 0.4,
+    "attack_prob": 0.1,
     "habitat_quality_start": 1.0,
     "warming_start": 0.0,
     "warming_rate": 2/((1*365*24*60)/7), # Berechnung Grad pro Step
-    "climate_habitat_loss": 0.001,
     "invasive_habitat_impact": 0.0001,
     "seed": 42,
 }

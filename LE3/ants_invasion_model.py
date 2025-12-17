@@ -578,7 +578,6 @@ class AntInvasionModel(Model):
         habitat_quality_start: float = 1.0,     # 1.0 = 100 %
         warming_start: float = 0.0,            # ΔT in °C
         warming_rate: float = 0.02,            # Zunahme pro Schritt
-        climate_habitat_loss: float = 0.005,   # Habitatverlust nur durch Klima / Schritt
         invasive_habitat_impact: float = 0.001,  # zusätzl. Verlust pro invasiver Ameise / Schritt
         n_native_hills: int = 1,
         n_invasive_hills: int = 1,
@@ -597,7 +596,6 @@ class AntInvasionModel(Model):
         # (0..1-Skala)
         self.warming = warming_start
         self.warming_rate = warming_rate
-        self.climate_habitat_loss = climate_habitat_loss
         self.invasive_habitat_impact = invasive_habitat_impact
         
         self.min_food_to_move = min_food_to_move
@@ -722,8 +720,7 @@ class AntInvasionModel(Model):
 
         # Klimabedingter Habitatverlust + zusätzlicher Verlust durch invasive Ameisen
         inv = self.count_invasive() * 0.0001
-        delta = self.climate_habitat_loss + inv * self.invasive_habitat_impact
-
+        delta = self.warming + inv * self.invasive_habitat_impact
         # additive Abnahme, begrenzt auf [0, 1]
         self.habitat_quality = max(0.0, min(1.0, self.habitat_quality - delta))
 
