@@ -46,14 +46,10 @@ class NativeAntHill(Agent):
         self,
         model: Model,
         stored_food_native: float = 0.0,
-        food_capacity: float = 200.0,
-        reproduce_threshold: float = 4.0,
-        max_new_ants_per_step: int = 2,
+        max_new_ants_per_step: int = 1,
     ):
         super().__init__(model)
         self.stored_food_native = float(stored_food_native)
-        self.food_capacity = float(food_capacity)
-        self.reproduce_threshold = float(reproduce_threshold)
         self.max_new_ants_per_step = int(max_new_ants_per_step)
 
     def receive_food(self, amount: float) -> float:
@@ -64,21 +60,14 @@ class NativeAntHill(Agent):
         if amount <= 0.0:
             return 0.0
 
-        free_capacity = self.food_capacity - self.stored_food_native
-        if free_capacity <= 0.0:
-            return 0.0
-
-        accepted = min(amount, free_capacity)
-        self.stored_food_native += accepted
-        return accepted
+        self.stored_food_native += amount
+        return amount
 
     def step(self):
         """
         Königin-Logik: Wenn genug Nahrung gespeichert ist, erzeugt der Hügel neue Ameisen.
         Die Reproduktion hängt außerdem positiv von habitat_quality ab.
         """
-        if self.stored_food_native < self.reproduce_threshold:
-            return
 
         # 0..1 – schlechte Habitatqualität dämpft Reproduktion
         h = max(0.0, min(1.0, self.model.habitat_quality))
@@ -97,8 +86,6 @@ class NativeAntHill(Agent):
                 energy=self.model.native_energy,
                 metabolism=self.model.metabolism_native,
                 bite_size=self.model.bite_native,
-                base_reproduce_prob=self.model.native_repro_base,
-                reproduce_threshold=self.model.repro_threshold_native,
             )
             self.model.grid.place_agent(ant, self.pos)
 
@@ -120,21 +107,20 @@ class NativeAnt(Agent):
         energy: float,
         metabolism: float,
         bite_size: float,
-        base_reproduce_prob: float,
-        reproduce_threshold: float,
     ):
         super().__init__(model)
         self.energy = float(energy)
         self.metabolism = float(metabolism)
         self.bite_size = float(bite_size)
         # bleiben als Felder vorhanden, werden aber nicht benutzt (Arbeiterinnen reproduzieren nicht)
-        self.base_reproduce_prob = float(base_reproduce_prob)
-        self.reproduce_threshold = float(reproduce_threshold)
         
         # Energiepuffer, damit die Ameise sich nicht komplett "leer" macht
-        self.min_energy = 1.0
+        self.min_energy = 6
         self.return_threshold = 6.0
         self.min_food_to_move = 1.0
+        self.mode = "search"  # "search" | "return"
+        self.max_energy = 208
+        self.max_foraging_dist = 15
 
     # ---------- Verhalten ----------
 
@@ -142,49 +128,68 @@ class NativeAnt(Agent):
         neighbors = self.model.grid.get_neighborhood(
             self.pos, moore=True, include_center=False
         )
-        # Alle Agenten in diesen Positionen holen
-        neighbor_agents = self.model.grid.get_cell_list_contents(neighbors)
 
-        # 💡 Wenn genug Energie: versuche, in Richtung nächster Ameisenhügel zu laufen
-        if self.energy >= self.return_threshold:
+        # --------------------------------------------------
+        # 1) Suchmodus: probabilistische Umkehr bei Energiemangel
+        # --------------------------------------------------
+        if self.mode == "search":
+            energy_frac = self.energy / self.max_energy  # 0..1
+
+            if energy_frac > 0.5:
+                # steigt von 0 bis 0.5 zwischen 50% und 100% Energie
+                p_return = (energy_frac - 0.5) / 0.5 * 0.5
+                if self.random.random() < p_return:
+                    self.mode = "return"
+        
+        if self.mode == "search":
+            # je leerer, desto höher die Rückkehrwahrscheinlichkeit
+            energy_frac = self.energy / self.max_energy  
+
+            # über 50 % Energie: Rückkehr wird wahrscheinlicher
+            if energy_frac > 0.5:
+                p_return = min(0.5, (0.5 - energy_frac))
+                if self.random.random() < p_return:
+                    self.mode = "return"
+
+        # --------------------------------------------------
+        # 2) Rückkehrmodus: zielgerichtet zum Nest
+        # --------------------------------------------------
+        if self.mode == "return":
             target = self.nearest_hill_pos()
             if target is not None:
-                tx, ty = target
-                width, height = self.model.width, self.model.height
 
-                def torus_dist2(a, b):
-                    (x1, y1) = a
-                    (x2, y2) = b
-                    dx = min(abs(x1 - x2), width - abs(x1 - x2))
-                    dy = min(abs(y1 - y2), height - abs(y1 - y2))
+                def dist2(a, b):
+                    dx = a[0] - b[0]
+                    dy = a[1] - b[1]
                     return dx * dx + dy * dy
 
-                # Wähle die Nachbarzelle, die den Abstand zum Ziel minimiert
-                best_cells = []
-                best_d2 = None
-                for n in neighbors:
-                    d2 = torus_dist2(n, target)
-                    if best_d2 is None or d2 < best_d2:
-                        best_d2 = d2
-                        best_cells = [n]
-                    elif d2 == best_d2:
-                        best_cells.append(n)
-
-                new_pos = self.random.choice(best_cells)
-                self.model.grid.move_agent(self, new_pos)
+                best = min(neighbors, key=lambda n: dist2(n, target))
+                self.model.grid.move_agent(self, best)
                 return
 
-        good_patches = [a for a in neighbor_agents if isinstance(a, ResourcePatch) and a.amount >= self.model.min_food_to_move ]
+        # --------------------------------------------------
+        # 3) Suchmodus: lokale Exploration
+        # --------------------------------------------------
+        hill = self.nearest_hill_pos()
+        if hill is not None and self.random.random() < 0.4:
+            hx, hy = hill
 
-        if good_patches:
-            patch = self.random.choice(good_patches)
-            new_pos = patch.pos
-            self.model.grid.move_agent(self,new_pos)
-            return
+            farther = [
+                n for n in neighbors
+                if abs(n[0] - hx) + abs(n[1] - hy) >
+                abs(self.pos[0] - hx) + abs(self.pos[1] - hy)
+            ]
 
-        # sonst: normales zufälliges Umherwandern
-        new_pos = self.random.choice(neighbors)
-        self.model.grid.move_agent(self, new_pos)
+            if farther:
+                self.model.grid.move_agent(self, self.random.choice(farther))
+                return
+
+        # --------------------------------------------------
+        # 4) Fallback: reiner Random Walk
+        # --------------------------------------------------
+        self.model.grid.move_agent(self, self.random.choice(neighbors))
+
+
 
     def eat(self):
         cellmates = self.model.grid.get_cell_list_contents([self.pos])
@@ -196,6 +201,9 @@ class NativeAnt(Agent):
         if take > 0:
             patch.amount -= take
             self.energy += take
+        if self.energy >= self.max_energy:
+            self.mode = "return"
+
 
     def deposit_food(self):
         """
@@ -214,7 +222,10 @@ class NativeAnt(Agent):
         if available <= 0.0:
             return
         accepted = hill.receive_food(available)
-        self.energy -= accepted
+        if accepted > 0:
+            self.energy -= accepted
+            self.mode = "search"
+
 
     def die(self):
         self.model.grid.remove_agent(self)
@@ -273,14 +284,10 @@ class InvasiveAntHill(Agent):
         self,
         model: Model,
         stored_food_invasive: float = 0.0,
-        food_capacity: float = 200.0,
-        reproduce_threshold: float = 3.0,
-        max_new_ants_per_step: int = 3,
+        max_new_ants_per_step: int = 6,
     ):
         super().__init__(model)
         self.stored_food_invasive = float(stored_food_invasive)
-        self.food_capacity = float(food_capacity)
-        self.reproduce_threshold = float(reproduce_threshold)
         self.max_new_ants_per_step = int(max_new_ants_per_step)
 
     def receive_food(self, amount: float) -> float:
@@ -291,21 +298,14 @@ class InvasiveAntHill(Agent):
         if amount <= 0.0:
             return 0.0
 
-        free_capacity = self.food_capacity - self.stored_food_invasive
-        if free_capacity <= 0.0:
-            return 0.0
-
-        accepted = min(amount, free_capacity)
-        self.stored_food_invasive += accepted
-        return accepted
+        self.stored_food_invasive += amount
+        return amount
 
     def step(self):
         """
         Königin-Logik: Wenn genug Nahrung gespeichert ist, erzeugt der Hügel neue Ameisen.
         Die Reproduktion hängt außerdem positiv von habitat_quality ab.
         """
-        if self.stored_food_invasive < self.reproduce_threshold:
-            return
 
 
         for _ in range(self.max_new_ants_per_step):
@@ -320,8 +320,6 @@ class InvasiveAntHill(Agent):
                 energy=self.model.invasive_energy,
                 metabolism=self.model.metabolism_invasive,
                 bite_size=self.model.bite_invasive,
-                base_reproduce_prob=self.model.invasive_repro_base,
-                reproduce_threshold=self.model.repro_threshold_invasive,
                 attack_prob=self.model.attack_prob,
             )
             self.model.grid.place_agent(ant, self.pos)
@@ -343,68 +341,76 @@ class InvasiveAnt(Agent):
         energy: float,
         metabolism: float,
         bite_size: float,
-        base_reproduce_prob: float,
-        reproduce_threshold: float,
         attack_prob: float,
     ):
         super().__init__(model)
         self.energy = float(energy)
         self.metabolism = float(metabolism)
         self.bite_size = float(bite_size)
-        self.base_reproduce_prob = float(base_reproduce_prob)
-        self.reproduce_threshold = float(reproduce_threshold)
         self.attack_prob = float(attack_prob)
         self.min_energy = 1.0
         self.return_threshold = 6.0
         self.min_food_to_move = 1.0
+        self.mode = "search"
+        self.max_energy = 14.0   # invasiv = etwas höhere Kapazität
+
 
     def move(self):
         neighbors = self.model.grid.get_neighborhood(
             self.pos, moore=True, include_center=False
         )
-        # Alle Agenten in diesen Positionen holen
-        neighbor_agents = self.model.grid.get_cell_list_contents(neighbors)
 
-        # 💡 Wenn genug Energie: versuche, in Richtung nächster Ameisenhügel zu laufen
-        if self.energy >= self.return_threshold:
+        # --------------------------------------------------
+        # 1) Suchmodus: energie-abhängige Rückkehr (später als bei NativeAnt)
+        # --------------------------------------------------
+        if self.mode == "search":
+            energy_frac = self.energy / self.max_energy  # 0..1
+
+            if energy_frac > 0.4:
+                # steigt von 0 bis 0.3 zwischen 40% und 100% Energie
+                p_return = (energy_frac - 0.4) / 0.6 * 0.3
+                if self.random.random() < p_return:
+                    self.mode = "return"
+
+
+        # --------------------------------------------------
+        # 2) Rückkehrmodus: zielgerichtet zum invasiven Nest
+        # --------------------------------------------------
+        if self.mode == "return":
             target = self.nearest_hill_pos()
             if target is not None:
-                tx, ty = target
-                width, height = self.model.width, self.model.height
 
-                def torus_dist2(a, b):
-                    (x1, y1) = a
-                    (x2, y2) = b
-                    dx = min(abs(x1 - x2), width - abs(x1 - x2))
-                    dy = min(abs(y1 - y2), height - abs(y1 - y2))
+                def dist2(a, b):
+                    dx = a[0] - b[0]
+                    dy = a[1] - b[1]
                     return dx * dx + dy * dy
 
-                # Wähle die Nachbarzelle, die den Abstand zum Ziel minimiert
-                best_cells = []
-                best_d2 = None
-                for n in neighbors:
-                    d2 = torus_dist2(n, target)
-                    if best_d2 is None or d2 < best_d2:
-                        best_d2 = d2
-                        best_cells = [n]
-                    elif d2 == best_d2:
-                        best_cells.append(n)
-
-                new_pos = self.random.choice(best_cells)
-                self.model.grid.move_agent(self, new_pos)
+                best = min(neighbors, key=lambda n: dist2(n, target))
+                self.model.grid.move_agent(self, best)
                 return
 
-        good_patches = [a for a in neighbor_agents if isinstance(a, ResourcePatch) and a.amount >= self.model.min_food_to_move ]
+        # --------------------------------------------------
+        # 3) Suchmodus: aggressivere Exploration
+        # --------------------------------------------------
+        hill = self.nearest_hill_pos()
+        if hill is not None and self.random.random() < 0.6:
+            hx, hy = hill
 
-        if good_patches:
-            patch = self.random.choice(good_patches)
-            new_pos = patch.pos
-            self.model.grid.move_agent(self,new_pos)
-            return
+            farther = [
+                n for n in neighbors
+                if abs(n[0] - hx) + abs(n[1] - hy) >
+                abs(self.pos[0] - hx) + abs(self.pos[1] - hy)
+            ]
 
-        # sonst: normales zufälliges Umherwandern
-        new_pos = self.random.choice(neighbors)
-        self.model.grid.move_agent(self, new_pos)
+            if farther:
+                self.model.grid.move_agent(self, self.random.choice(farther))
+                return
+
+        # --------------------------------------------------
+        # 4) Fallback: Random Walk
+        # --------------------------------------------------
+        self.model.grid.move_agent(self, self.random.choice(neighbors))
+
         
     def eat(self):
         cellmates = self.model.grid.get_cell_list_contents([self.pos])
@@ -423,7 +429,7 @@ class InvasiveAnt(Agent):
         for ant in natives:
             if self.random.random() < self.attack_prob:
                 ant.die()
-
+                
     def die(self):
         self.model.grid.remove_agent(self)
         self.remove()
@@ -445,7 +451,11 @@ class InvasiveAnt(Agent):
         if available <= 0.0:
             return
         accepted = hill.receive_food(available)
-        self.energy -= accepted
+        if accepted > 0:
+            self.energy -= accepted
+            self.mode = "search"
+        
+        
     def step(self):
         self.energy -= self.metabolism
         if self.energy <= 0:
@@ -456,6 +466,7 @@ class InvasiveAnt(Agent):
         self.eat()
         # keine Selbst-Reproduktion mehr
         self.deposit_food()
+        self.attack_natives()
         
     
 
@@ -563,16 +574,11 @@ class AntInvasionModel(Model):
         metabolism_invasive: float = 0.25,
         bite_native: float = 0.8,
         bite_invasive: float = 1.0,
-        native_repro_base: float = 0.15,
-        invasive_repro_base: float = 0.18,
-        repro_threshold_native: float = 8.0,
-        repro_threshold_invasive: float = 8.0,
         attack_prob: float = 0.4,
         # Umwelt / Stocks
         habitat_quality_start: float = 1.0,     # 1.0 = 100 %
         warming_start: float = 0.0,            # ΔT in °C
         warming_rate: float = 0.02,            # Zunahme pro Schritt
-        climate_habitat_loss: float = 0.005,   # Habitatverlust nur durch Klima / Schritt
         invasive_habitat_impact: float = 0.001,  # zusätzl. Verlust pro invasiver Ameise / Schritt
         n_native_hills: int = 1,
         n_invasive_hills: int = 1,
@@ -584,14 +590,13 @@ class AntInvasionModel(Model):
 
         self.width = width
         self.height = height
-        self.grid = MultiGrid(width, height, torus=True)
+        self.grid = MultiGrid(width, height, torus=False)
 
         # Globale Stocks
         self.habitat_quality = habitat_quality_start
         # (0..1-Skala)
         self.warming = warming_start
         self.warming_rate = warming_rate
-        self.climate_habitat_loss = climate_habitat_loss
         self.invasive_habitat_impact = invasive_habitat_impact
         
         self.min_food_to_move = min_food_to_move
@@ -604,11 +609,6 @@ class AntInvasionModel(Model):
         self.metabolism_invasive = metabolism_invasive
         self.bite_native = bite_native
         self.bite_invasive = bite_invasive
-        self.native_repro_base = native_repro_base
-        self.invasive_repro_base = invasive_repro_base
-        self.repro_threshold_native = repro_threshold_native
-        self.repro_threshold_invasive = repro_threshold_invasive
-        
         x_invasive_start_position = random.randrange(width)
         y_invasive_start_position = random.randrange(height)
         
@@ -616,25 +616,22 @@ class AntInvasionModel(Model):
         self.initial_total_resources = 0.0
         for x in range(width):
             for y in range(height):
-                if random.randint(1, 10) == 1:
-                    has_res = self.random.random() < resource_density
-                    amount = patch_max * patch_initial_share if has_res else 0.0
-                    patch = ResourcePatch(
-                        model=self,
-                        amount=amount,
-                        max_amount=patch_max,
-                        regen_rate=patch_regen,
-                    )
-                    self.grid.place_agent(patch, (x, y))
-                    self.initial_total_resources += amount
+                has_res = self.random.random() < resource_density
+                amount = patch_max * patch_initial_share if has_res else 0.0
+                patch = ResourcePatch(
+                    model=self,
+                    amount=amount,
+                    max_amount=patch_max,
+                    regen_rate=patch_regen,
+                )
+                self.grid.place_agent(patch, (x, y))
+                self.initial_total_resources += amount
 
         # Ameisenhügel für die NativeAnts
         for _ in range(n_native_hills):
             hill = NativeAntHill(
                 model=self,
                 stored_food_native=0.0,
-                food_capacity=200.0,
-                reproduce_threshold=5.0,
                 max_new_ants_per_step=2,
             )
             x = 25
@@ -648,8 +645,6 @@ class AntInvasionModel(Model):
                 energy=native_energy,
                 metabolism=metabolism_native,
                 bite_size=bite_native,
-                base_reproduce_prob=native_repro_base,
-                reproduce_threshold=repro_threshold_native,
             )
             x = 25 # self.random.randrange(width)
             y = 25 # self.random.randrange(height)
@@ -660,8 +655,6 @@ class AntInvasionModel(Model):
             hill = InvasiveAntHill(
                 model=self,
                 stored_food_invasive=0.0,
-                food_capacity=200.0,
-                reproduce_threshold=5.0,
                 max_new_ants_per_step=3,
             )
             x = x_invasive_start_position
@@ -675,8 +668,6 @@ class AntInvasionModel(Model):
                 energy=invasive_energy,
                 metabolism=metabolism_invasive,
                 bite_size=bite_invasive,
-                base_reproduce_prob=invasive_repro_base,
-                reproduce_threshold=repro_threshold_invasive,
                 attack_prob=attack_prob,
             )
             x = x_invasive_start_position
@@ -729,9 +720,8 @@ class AntInvasionModel(Model):
         self.warming += self.warming_rate
 
         # Klimabedingter Habitatverlust + zusätzlicher Verlust durch invasive Ameisen
-        inv = self.count_invasive() * 0.0001
-        delta = self.climate_habitat_loss + inv * self.invasive_habitat_impact
-
+        inv = self.count_invasive() * 0.000001
+        delta = self.warming + inv * self.invasive_habitat_impact
         # additive Abnahme, begrenzt auf [0, 1]
         self.habitat_quality = max(0.0, min(1.0, self.habitat_quality - delta))
 

@@ -3,7 +3,7 @@
 
 from mesa.visualization import SolaraViz, make_space_component, make_plot_component
 
-from ants_abm_mesa import AntForageModel, Ant, ResourcePatch
+from LE3.Old.ants_abm_mesa import AntForageModel, Ant, ResourcePatch
 
 
 # ---------------------------
