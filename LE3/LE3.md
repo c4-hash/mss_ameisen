@@ -23,7 +23,7 @@ Es sollte sich der Browser öffnen und eine grafische Darstellung der Simulation
 
 # Modellparameter
 
-    Die breite und höhe, die das modell annimmt. Grösse wurde so bestimmt, dass ein Quadrat 16 m^2 gross ist. Da sich Ameisen bis zu 200 Meter Meter von ihrem Nest wegbewegen, wurde die höhe und breite so gewählt, dass das auch in unserer Simulation möglich wäre. 
+    Die breite und höhe, die das modell annimmt. Grösse wurde so bestimmt, dass ein Quadrat 16 m² gross ist. Da sich Ameisen bis zu 200 Meter Meter von ihrem Nest wegbewegen, wurde die höhe und breite so gewählt, dass das auch in unserer Simulation möglich wäre. 
     "width": 51 
     "height": 51
 
@@ -73,3 +73,104 @@ Es sollte sich der Browser öffnen und eine grafische Darstellung der Simulation
     "invasive_habitat_impact": 0.0001,
     
     "seed": 42,
+
+# Backtest
+
+Auf einen Backtest wird aus zeitlichen Gründen nicht durchgeführt.
+
+# Erkenntnisse
+
+In unserem Modell entwickeln sich die beiden Ameisenpopulationen parallel. Jedoch durch den klimatischen Einfluss und die invasiven Ameisen, wird die Habitatsqualität über die Zeit verschlechtert. Dadurch sterben die nativen Ameisen nach kurzer Zeit aus.
+
+# Fragen laut Mini Challenge
+
+Hier werden die Fragen beantwortet, die bei der Mini-Challenge Aufgabenstellung gefragt waren.
+
+## Problemstellung
+
+Was für Auswirkungen hat eine invasive Ameisenart auf unsere nativen Ameisen?
+
+## Kenngrössen
+
+Siehe Modellparameter
+
+## Systemgrenzen
+
+- Native Ameisenart der Schweiz
+- Einzelne invasive Art die bereits in der Schweiz lebt
+- Habitatsqualität (Klimaerwärmung mit der Annahme, dass pro Jahr die Durchschnitttemperatur um 0.02°C steigt und Anstieg der Anzahl invasiven Ameisen)
+- Ressourcen
+
+### Außerhalb der Systemgrenzen
+
+Nicht explizit modelliert werden:
+
+- Landnutzungsänderungen (Forstwirtschaft, Landwirtschaft, Bebauung)
+- Feinde/Prädatoren der Ameisen
+- Detaillierte Nahrungsnetze (konkrete Beutearten)
+- Räumliche Ausbreitung (z. B. Koloniewanderungen zwischen Patches)
+
+Diese Faktoren werden, falls nötig, nur im Rahmen von Annahmen oder Szenariobeschreibungen qualitativ diskutiert.
+
+## Mikroebene (Agentenebene)
+
+- Bewegung einzelner Arbeiterinnen (Schrittweise Fortbewegung, Orientierung)
+- Entscheidungen: suchen / folgen / umkehren / tragen / abgeben
+- Lokale Interaktionen: Ameise–Ameise (Recruitment), Ameise–Pheromon, Ameise–Ressource
+
+## Makroebene (Systemebene)
+- Koloniegrößen (Anzahl Arbeiterinnen/Brut), Gesamtenergie-/Futtervorrat
+- Netto-Eintrag vs. Verbrauch → Wachstum oder Schrumpfen
+- Räumliche Muster: Trails, Ausbeutung des Gebiets, „Hotspots“ von Nahrung
+- Stabilität/Resilienz bei Störungen (Ressourcenpuls, Konkurrenz)
+
+## Räumliche Auflösung
+
+Wir haben ein 2D-Gitter mit Koordinaten. Die breite und höhe, die das modell annimmt. Grösse wurde so bestimmt, dass ein Quadrat 16 m² gross ist. Da sich Ameisen bis zu 200 Meter Meter von ihrem Nest wegbewegen, wurde die höhe und breite so gewählt, dass das auch in unserer Simulation möglich wäre. 
+
+## Distanzfunktion
+
+Wir verwenden die Manhatten-Distanz um mit Entfernungen zu rechnen.
+
+## Agenten & Interaktionen
+
+- Native Ameisenarbeiterinnen
+- Nativer Ameisenhügel in der Mitte des Gitters
+- Invasive Ameisenarbeiterinnen
+- Invasiver Ameisenhügel an einer random Position
+- Ressourcen
+
+### Interaktionen
+
+- Invasive Arten greifen native an
+- Invasive und native verwenden Ressourcen für Energie
+- Invasive und native bringen die nicht verwendeten Ressourcen zurück zum Ameisenhügel
+- Invasive und native Ameisenhügel generieren neue Ameisen mit gespeicherten Ressourcen
+
+### Eigenschaften
+
+- Arbeiterinnen: Position, Energiezustand, Modus (Suchen/Return)
+- Nahrung: Menge, Regeneration
+- Ameisenhaufen: Eiablagerate, gespeicherte Nahrung
+
+## Zeithorizont
+
+Mit jedem Step vergehen 7 Minuten.
+
+### Begründung
+Native laufen durchschnitlich 1 cm/s und invasive 1.2 cm/s. Um das ganze zu vereinfachen haben wir die Annahme getroffen, dass beide Arten gleich schnell laufen und zwar 1 cm/s.
+
+## Externe Grösse
+Als externe Grösse haben wir in unserem Modell den Klimawandel. Der Klimawandel beeinflusst die Habitatsqualität welche wiederum die Generationsrate der nativen Ameisen reduziert. 
+
+## Anfangsparameter
+
+Siehe Modellparameter
+
+## Kenngrössen Entwicklung
+
+Die nativen Ameisen sterben aus und die Invasiven wachsen stetig. Die Habitatsqualität sinkt und die Erwärmung steigt gleichmässig.
+
+## Backtest
+
+Wir konnten keinen Backtest machen aber wenn wir einen machen würden, würden wir andere invasive Spezies anschauen wie diese mit den Nativen interagieren.
