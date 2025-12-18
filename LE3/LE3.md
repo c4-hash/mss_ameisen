@@ -6,6 +6,8 @@ Die Simulation zeigt Native Ameisen (Blaue Quadrate), Invasive Ameisen (Rote Qua
 
 Die Implementierung der Simulation wurde mit Mesa gemacht und das GUI wurde mit Solara erstellt.
 
+Ein Step in der Simulation sind Gleichzusetzen mit 7 Minuten, die vergehen.
+
 ## Aufbau
 
 Die Simulaton besteht aus zwei Daten:
@@ -34,19 +36,40 @@ Es sollte sich der Browser öffnen und eine grafische Darstellung der Simulation
     Parameter, der bestimmt, wieviel Prozent der Quadrate Ressourcen besitzen. Wurde auf 1 (100%) gesetzt, da auf einem 16 m^2 Waldbereich, sehr sicher Ressourcen vorkommen.
     "resource_density": 1,
 
-    Maximale Anzahl Ressourcen, die ein Quadrat besitzen kann in Milligramm. Wurde auf 53.8 Kg gesetzt, da dies laut 
+    Maximale Anzahl Ressourcen, die ein Quadrat besitzen kann in Milligramm. Die Zahl wurde auf 200'000 Mg gesetzt, da das laut verschiedener aggregierter Quellen ein grober Durchschnittswert die Produktion von "Ameisennahrung" (Samen, Insekten, etc.) für ein 4*4 m Feld pro Jahr ist.
     "patch_max": 200000,
+
+    Initialwert der Ressourcen auf einem Ressourcenfeld. Wurde auf 0 gesetzt, da es schwierig war, eine Schätzung für einen guten Anfangswert zu tätigen.
     "patch_initial_share": 0,
+
+    Regenerierungswert der Nahrung auf den Ressourcenfeldern. Wurde auf 6 gesetzt, da das ein hochgerechneter Wert der jährlichen generation auf Sieben Minuten ist.
     "patch_regen": 6,
-    "native_energy": 208,
-    "invasive_energy": 105,
+
+    Energie der Ameisen. Aufgrund implementation eine Mischung zwischen der theoretisch möglichen "Ameisenenergie" und der Tragekapazität der Ameisen. 
+    "native_energy": 208, -> 8 Joule "Ameisentank" + 200 mg Tragekapazität
+    "invasive_energy": 105, -> 5 Joule "Ameisentank" + 100 mg Tragekapazität
+    
+    Metabolismus von den Ameisen
     "metabolism_native": 0.015,
     "metabolism_invasive": 0.00225,
+    
+    "Bissgrösse" der Ameisen. Gibt an wie viele Mg eine Ameisen pro Step von einem Ressourcenfeld abbeissen kann.
     "bite_native": 200,
-    "bite_invasive": 200,
+    "bite_invasive": 100,
+
+    Warscheinlichkeit, dass invasive Ameisen die Nativen Ameisen attackieren.
     "attack_prob": 0.1,
+
+    Parameter, der bestimmt, wie "gut" das Habitat zu beginn der Simulation ist.
     "habitat_quality_start": 1.0,
+    
+    Wie viel Klimaerwährmung wird zu anfang der Simulation angenommen.
     "warming_start": 0.0,
-    "warming_rate": 2/((1*365*24*60)/7), # Berechnung Grad pro Step
+
+    Um wie viel Grad erhöht sich die Klimaerwährmung pro step. Es wird von einer jährlichen Erwärmung von 0.02 Grad pro Jahr ausgegangen. Diese wird dann auf 7 Minuten heruntergebrochen.
+    "warming_rate": 0.02/((1*365*24*60)/7), # Berechnung Grad pro Step
+
+    Wert, wie fest die Invasiven Ameisen die Habitatsqualität beeinflussen.
     "invasive_habitat_impact": 0.0001,
+    
     "seed": 42,

@@ -85,20 +85,20 @@ model_params = {
     "initial_native": 30,
     "initial_invasive": 5,
     "resource_density": 1,
-    "patch_max": 53800000,
+    "patch_max": 200000,
     "patch_initial_share": 0,
-    "patch_regen": 500,
+    "patch_regen": 6,
     "native_energy": 208,
     "invasive_energy": 105,
     "metabolism_native": 0.015,
     "metabolism_invasive": 0.00225,
     "bite_native": 200,
-    "bite_invasive": 200,
+    "bite_invasive": 100,
     "attack_prob": 0.1,
     "habitat_quality_start": 1.0,
     "warming_start": 0.0,
-    "warming_rate": 2/((1*365*24*60)/7), # Berechnung Grad pro Step
-    "invasive_habitat_impact": 0.0001,
+    "warming_rate": 0.02/((1*365*24*60)/7), # Berechnung Grad pro Step
+    "invasive_habitat_impact": 0.000001,
     "seed": 42,
 }
 

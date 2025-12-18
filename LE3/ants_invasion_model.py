@@ -429,7 +429,7 @@ class InvasiveAnt(Agent):
         for ant in natives:
             if self.random.random() < self.attack_prob:
                 ant.die()
-
+                
     def die(self):
         self.model.grid.remove_agent(self)
         self.remove()
@@ -466,6 +466,7 @@ class InvasiveAnt(Agent):
         self.eat()
         # keine Selbst-Reproduktion mehr
         self.deposit_food()
+        self.attack_natives()
         
     
 
@@ -719,7 +720,7 @@ class AntInvasionModel(Model):
         self.warming += self.warming_rate
 
         # Klimabedingter Habitatverlust + zusätzlicher Verlust durch invasive Ameisen
-        inv = self.count_invasive() * 0.0001
+        inv = self.count_invasive() * 0.000001
         delta = self.warming + inv * self.invasive_habitat_impact
         # additive Abnahme, begrenzt auf [0, 1]
         self.habitat_quality = max(0.0, min(1.0, self.habitat_quality - delta))
