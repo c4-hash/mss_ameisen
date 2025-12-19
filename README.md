@@ -78,15 +78,23 @@ Inhalt:
 **Ordner:** [LE3](LE3/)
 
 Inhalt:
-
-- [LE3.ipynb](LE3/LE3.ipynb) 
-  Test-Notebook für die agentenbasierte Simulation.
-- [ants_invasion_model.py](LE3/ants_invasion_model.py)  
-  Mesa-Modelldefinition (Grid, Agenten, Interaktionen).
-- [ants_abm_mesa.py](LE3/ants_abm_mesa.py) 
-  Test Python Datei für erste Schritte mit Mesa und Ameisen
 - [ant_invasion_viz.py](LE3/ant_invasion_viz.py), [ants_viz.py](LE3/ants_viz.py)
   Visualisierungen (z.B. Grid-Darstellung, Zeitreihen).
+  
+- [ant_invasion_model.py](LE3/ant_invasion_model.py)  
+  Mesa-Modelldefinition (Grid, Agenten, Interaktionen).
+
+- [Old](LE3/Old)
+  Order für alte Testdateien
+
+- [LE3.ipynb](LE3/Old/LE3.ipynb) 
+  Test-Notebook für die agentenbasierte Simulation.
+
+- [ants_abm_mesa.py](LE3/Old/ants_abm_mesa.py) 
+  Test Python Datei für erste Schritte mit Mesa und Ameisen
+
+- [ants_viz.py](LE3/Old/ants_viz.py) 
+  Test Python Datei für erste Schritte mit Solara
 
 Die Simulation kann mit solara run LE3/ant_invasion_viz.py ausgeführt werden
 
