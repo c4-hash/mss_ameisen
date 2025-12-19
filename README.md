@@ -124,11 +124,12 @@ Inhalt:
 ├── Notebooks/
 │   └── Ameisen_SD_BPTK.ipynb      # LE2 & LE4 – Systemdynamik + Szenarien
 ├── LE3/
-│   ├── LE3.ipynb                  # LE3 – Agentenbasierte Simulation (Mesa)
-│   ├── ants_invasion_model.py
-│   ├── ants_abm_mesa.py
-│   ├── ants_invasion_viz.py
-│   └── ants_viz.py
+│   ├── ants_invasion_model.py     # LE3 - Mesa Modell
+│   └── ant_invasion_viz.py        # LE3 - Solara visualisierung
+|   └── Old # Tests mit Mesa und Solara
+|       ├── LE3.ipynb
+|       ├── ants_abm_mesa.py
+|       └── ants_viz.py
 ├── SystemModellierungen/
 │   ├── Causal_loop.drawio
 │   ├── Causal_loop.drawio.png
