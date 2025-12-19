@@ -86,6 +86,10 @@ Inhalt:
 
   Mesa-Modelldefinition (Grid, Agenten, Interaktionen).
 
+- [LE3.md](LE3/LE3.md)
+
+  Beschreibt die Simulation und beantwortet Fragen der Mini Challenge
+
 - [Old](LE3/Old)
 
   Order für alte Testdateien
@@ -139,7 +143,8 @@ Inhalt:
 │   └── Ameisen_SD_BPTK.ipynb      # LE2 & LE4 – Systemdynamik + Szenarien
 ├── LE3/
 │   ├── ants_invasion_model.py     # LE3 - Mesa Modell
-│   └── ant_invasion_viz.py        # LE3 - Solara visualisierung
+│   ├── ant_invasion_viz.py        # LE3 - Solara visualisierung
+|   ├── LE3.md
 |   └── Old # Tests mit Mesa und Solara
 |       ├── LE3.ipynb
 |       ├── ants_abm_mesa.py
