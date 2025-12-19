@@ -20,7 +20,7 @@ Im Fokus stehen:
 
 Enthält die Artefakte aus LE1:
 
-- [Causal_loop_Simplified.drawio](SystemModellierungen_&_LE1/Causal_loop_Simplified.drawio) / [Causal_loop.drawio.png](SystemModellierungen & LE1/Causal_loop.drawio.png)  
+- [Causal_loop_Simplified.drawio](SystemModellierungen_&_LE1/Causal_loop_Simplified.drawio) / [Causal_loop.drawio.png](SystemModellierungen_&_LE1/Causal_loop.drawio.png)  
   Vereinfachtes Kausalschleifen-Diagramm mit **1 Loop**:
   - Ameisenpopulation → Ressourcen für invasive Art → invasive Arten → Habitatqualität → Ameisenpopulation
 - [Stakeholder_Diagramm.drawio](SystemModellierungen_&_LE1/Stakeholder_Diagramm.drawio)  
