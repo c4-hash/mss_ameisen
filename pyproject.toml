@@ -6,14 +6,15 @@ authors = [
     {name = "c4-hash",email = "zephyr.kessler@gmail.com"}
 ]
 readme = "README.md"
-requires-python = ">=3.12"
+requires-python = ">=3.12,<=3.14"
 dependencies = [
     "bptk-py (==2.2.1)",
     "pandas (==2.3.0)",
     "digraph (>=0.1.4,<0.2.0)",
     "graphviz (>=0.21,<0.22)",
     "mesa (>=3.3.1,<4.0.0)",
-    "solara (>=1.55.1,<2.0.0)"
+    "solara (>=1.55.1,<2.0.0)",
+    "networkx (>=3.6.1,<4.0.0)"
 ]
 
 
