@@ -160,6 +160,8 @@ Inhalt:
 ├── poetry.lock
 └── bptk_py.log                    # Log von BPTK-Py (kann ignoriert werden)
 
+```text
+
 
 
 ## Poetry Setup (Kurzanleitung)
