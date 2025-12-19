@@ -16,18 +16,18 @@ Im Fokus stehen:
 
 ### LE 1 – Systemkarte & Systemgrenzen
 
-**Ordner:** [SystemModellierungen & LE1](SystemModellierungen & LE1/)
+**Ordner:** [SystemModellierungen & LE1](SystemModellierungen_&_LE1/)
 
 Enthält die Artefakte aus LE1:
 
-- [Causal_loop_Simplified.drawio](SystemModellierungen & LE1/Causal_loop_Simplified.drawio) / [Causal_loop.drawio.png](SystemModellierungen & LE1/Causal_loop.drawio.png)  
+- [Causal_loop_Simplified.drawio](SystemModellierungen_&_LE1/Causal_loop_Simplified.drawio) / [Causal_loop.drawio.png](SystemModellierungen & LE1/Causal_loop.drawio.png)  
   Vereinfachtes Kausalschleifen-Diagramm mit **1 Loop**:
   - Ameisenpopulation → Ressourcen für invasive Art → invasive Arten → Habitatqualität → Ameisenpopulation
-- [Stakeholder_Diagramm.drawio](SystemModellierungen & LE1/Stakeholder_Diagramm.drawio)  
+- [Stakeholder_Diagramm.drawio](SystemModellierungen_&_LE1/Stakeholder_Diagramm.drawio)  
   Stakeholder-Map für diesen Loop (Ameisen, invasive Arten).
-- [mini_power_interest_raster_reduced.png](SystemModellierungen & LE1/mini_power_interest_raster_reduced.png)
+- [mini_power_interest_raster_reduced.png](SystemModellierungen_&_LE1/mini_power_interest_raster_reduced.png)
   Reduziertes Power-Interest-Raster für die wichtigsten Stakeholder.
-- [Systemgrenzen.md](SystemModellierungen & LE1/Systemgrenzen.md)
+- [Systemgrenzen.md](SystemModellierungen_&_LE1/Systemgrenzen.md)
   Textliche Definition der Systemgrenzen (Raum: lokales Wald-/Saumbiotop, Zeit: 20 Jahre, endogene Variablen, exogener Treiber Erderwärmung).
 
 Diese Artefakte werden in LE2–LE4 weiterverwendet.
@@ -37,7 +37,7 @@ Diese Artefakte werden in LE2–LE4 weiterverwendet.
 ### LE 2 – Systemdynamiksimulation (BPTK-Py)
 
 
-**Ort:** [Causal_loop_Simplified.drawio](SystemModellierungen & LE1/Causal_loop_Simplified.drawio) - Abschnitt **„LE 2“**
+**Ort:** [Causal_loop_Simplified.drawio](SystemModellierungen_&_LE1/Causal_loop_Simplified.drawio) - Abschnitt **„LE 2“**
 
 
 Inhalt:
@@ -46,7 +46,7 @@ Inhalt:
 - Die umgesetzte Kaussalschleife inkl. Fragestellung
 
 
-**Ort:** [Ameisen_SD_BPTK.ipynb](LE2 & LE4/Ameisen_SD_BPTK.ipynb) – Abschnitt **„LE 2: Systemdynamiksimulationen“**
+**Ort:** [Ameisen_SD_BPTK.ipynb](LE2_&_LE4/Ameisen_SD_BPTK.ipynb) – Abschnitt **„LE 2: Systemdynamiksimulationen“**
 
 Inhalt:
 
@@ -105,7 +105,7 @@ Hier wird die Mikro-Ebene (einzelne Ameisen / Kolonien) modelliert und mit der M
 ### LE 4 – Szenarien & integrierte Analyse
 
 
-**Ort:** [Causal_loop_Simplified.drawio](SystemModellierungen & LE1/Causal_loop_Simplified.drawio) - Abschnitt **„LE 4“**
+**Ort:** [Causal_loop_Simplified.drawio](SystemModellierungen_&_LE1/Causal_loop_Simplified.drawio) - Abschnitt **„LE 4“**
 
 
 Inhalt:
@@ -114,7 +114,7 @@ Inhalt:
 - Die umgesetzte Kaussalschleife inkl. Fragestellung und der Übertragungskanäle
 
 
-**Ort:** [Ameisen_SD_BPTK.ipynb](LE2 & LE4/Ameisen_SD_BPTK.ipynb) – Abschnitt **„LE 4: Szenarien“**
+**Ort:** [Ameisen_SD_BPTK.ipynb](LE2_&_LE4/Ameisen_SD_BPTK.ipynb) – Abschnitt **„LE 4: Szenarien“**
 
 Inhalt:
 
