@@ -116,12 +116,12 @@ Diese Faktoren werden, falls nötig, nur im Rahmen von Annahmen oder Szenariobes
 
 - Bewegung einzelner Arbeiterinnen (Schrittweise Fortbewegung, Orientierung)
 - Entscheidungen: suchen / folgen / umkehren / tragen / abgeben
-- Lokale Interaktionen: Ameise–Ameise (Recruitment), Ameise–Pheromon, Ameise–Ressource
+- Lokale Interaktionen: Ameise–Ameise, Ameise–Ressource
 
 ## Makroebene (Systemebene)
 - Koloniegrößen (Anzahl Arbeiterinnen/Brut), Gesamtenergie-/Futtervorrat
-- Netto-Eintrag vs. Verbrauch → Wachstum oder Schrumpfen
-- Räumliche Muster: Trails, Ausbeutung des Gebiets, „Hotspots“ von Nahrung
+- Netto-Eintrag vs. Verbrauch --> Wachstum oder Schrumpfen
+- Räumliche Muster: Ausbeutung des Gebiets
 - Stabilität/Resilienz bei Störungen (Ressourcenpuls, Konkurrenz)
 
 ## Räumliche Auflösung
