@@ -90,17 +90,17 @@ Inhalt:
 
   Order für alte Testdateien
 
-- [LE3.ipynb](LE3/Old/LE3.ipynb) 
+  - [LE3.ipynb](LE3/Old/LE3.ipynb) 
 
-  Test-Notebook für die agentenbasierte Simulation.
+    Test-Notebook für die agentenbasierte Simulation.
 
-- [ants_abm_mesa.py](LE3/Old/ants_abm_mesa.py) 
+  - [ants_abm_mesa.py](LE3/Old/ants_abm_mesa.py) 
 
-  Test Python Datei für erste Schritte mit Mesa und Ameisen
+    Test Python Datei für erste Schritte mit Mesa und Ameisen
 
-- [ants_viz.py](LE3/Old/ants_viz.py) 
+  - [ants_viz.py](LE3/Old/ants_viz.py) 
 
-  Test Python Datei für erste Schritte mit Solara
+    Test Python Datei für erste Schritte mit Solara
 
 Die Simulation kann mit solara run LE3/ant_invasion_viz.py ausgeführt werden
 
