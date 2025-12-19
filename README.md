@@ -20,7 +20,7 @@ Im Fokus stehen:
 
 Enthält die Artefakte aus LE1:
 
-- [Causal_loop_Simplified.drawio](SystemModellierungen_&_LE1/Causal_loop_Simplified.drawio) / [Causal_loop.drawio.png](SystemModellierungen & LE1/Causal_loop.drawio.png)  
+- [Causal_loop_Simplified.drawio](SystemModellierungen_&_LE1/Causal_loop_Simplified.drawio) / [Causal_loop.drawio.png](SystemModellierungen_&_LE1/Causal_loop.drawio.png)  
   Vereinfachtes Kausalschleifen-Diagramm mit **1 Loop**:
   - Ameisenpopulation → Ressourcen für invasive Art → invasive Arten → Habitatqualität → Ameisenpopulation
 - [Stakeholder_Diagramm.drawio](SystemModellierungen_&_LE1/Stakeholder_Diagramm.drawio)  
@@ -79,22 +79,28 @@ Inhalt:
 
 Inhalt:
 - [ant_invasion_viz.py](LE3/ant_invasion_viz.py), [ants_viz.py](LE3/ants_viz.py)
+
   Visualisierungen (z.B. Grid-Darstellung, Zeitreihen).
   
 - [ant_invasion_model.py](LE3/ant_invasion_model.py)  
+
   Mesa-Modelldefinition (Grid, Agenten, Interaktionen).
 
 - [Old](LE3/Old)
+
   Order für alte Testdateien
 
-- [LE3.ipynb](LE3/Old/LE3.ipynb) 
-  Test-Notebook für die agentenbasierte Simulation.
+  - [LE3.ipynb](LE3/Old/LE3.ipynb) 
 
-- [ants_abm_mesa.py](LE3/Old/ants_abm_mesa.py) 
-  Test Python Datei für erste Schritte mit Mesa und Ameisen
+    Test-Notebook für die agentenbasierte Simulation.
 
-- [ants_viz.py](LE3/Old/ants_viz.py) 
-  Test Python Datei für erste Schritte mit Solara
+  - [ants_abm_mesa.py](LE3/Old/ants_abm_mesa.py) 
+
+    Test Python Datei für erste Schritte mit Mesa und Ameisen
+
+  - [ants_viz.py](LE3/Old/ants_viz.py) 
+
+    Test Python Datei für erste Schritte mit Solara
 
 Die Simulation kann mit solara run LE3/ant_invasion_viz.py ausgeführt werden
 
