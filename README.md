@@ -159,3 +159,38 @@ Inhalt:
 ├── pyproject.toml                 # Python-Projektkonfiguration (u.a. BPTK-Py, Mesa)
 ├── poetry.lock
 └── bptk_py.log                    # Log von BPTK-Py (kann ignoriert werden)
+
+
+
+## Poetry Setup (Kurzanleitung)
+
+### 1. Poetry installieren (Windows/PowerShell)
+
+Falls pipx nicht installiert ist wird `pipx` installiert, um Poetry verfügbar zu machen:
+
+```powershell
+python -m pip install --user pipx
+python -m pipx ensurepath
+```
+Poetry install via pipx
+
+```powershell
+pipx install poetry
+poetry --version
+```
+
+### 2. Projekt installieren
+
+Dieser Befehl erstellt automatisch die virtuelle Umgebung (Env) und installiert alle Abhängigkeiten:
+
+```powershell
+poetry install
+```
+
+> **Hinweis bei Fehlern:**
+> Falls es Probleme mit der `pyproject.toml` oder dem Lockfile gibt (Versionskonflikte), hilft meist das Neuschreiben des Lockfiles:
+>
+> ```powershell
+> poetry lock
+> poetry install
+> ```
